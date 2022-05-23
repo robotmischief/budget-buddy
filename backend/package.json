@@ -1,0 +1,26 @@
+{
+  "name": "budget-buddy",
+  "version": "1.0.0",
+  "description": "Your budget friendly App for your empty pocket",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robotmischief/budget-buddy.git"
+  },
+  "author": "Diego Cervetti",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/robotmischief/budget-buddy/issues"
+  },
+  "homepage": "https://github.com/robotmischief/budget-buddy#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16",
+    "pg": "^8.7.3"
+  }
+}
