@@ -1,0 +1,35 @@
+/* small sanitizer && default font */
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Titillium Web', sans-serif;;
+    font-weight: 200;
+}
+
+/* color palette and constants */
+:root {
+    --appbackground: #111f27;
+    --navbarbackground: rgba(255, 255, 255, .8);
+    --apptextcolor: #fff;
+    --navbartextcolor: #394347;
+    --shadows: rgba(17, 17, 17, .8);
+    --accentcolor: dodgerblue;
+    --navbarheight: 70px;
+}
+
+/* layout (mobile first) */
+body {
+    overflow: hidden;
+    background-color: var(--appbackground);
+    color: var(--apptextcolor);
+}
+
+.main-content {
+    border: 1px solid greenyellow;
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;
+}
