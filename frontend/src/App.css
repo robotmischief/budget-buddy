@@ -18,6 +18,8 @@
     --shadows: rgba(17, 17, 17, .8);
     --accentcolor: dodgerblue;
     --navbarheight: 70px;
+    --navbarincomecolor: rgb(134, 240, 152);
+    --navbarexpensecolor: rgb(230, 74, 74);
 }
 
 /* layout (mobile first) */
@@ -28,7 +30,6 @@ body {
 }
 
 .main-content {
-    border: 1px solid greenyellow;
     min-height: 100vh;
     width: 100%;
     text-align: center;
