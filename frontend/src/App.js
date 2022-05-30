@@ -1,17 +1,30 @@
-import './App.css';
 import { GlobalProvider } from './context/GlobalState';
-import NavBar from './components/NavBar'; 
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import './App.css';
+import NavBar from './components/NavBar';
+import Statement from './pages/Statement';
+import Add from './pages/Add';
+import Settings from './pages/Settings';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <GlobalProvider>
-      <div className="nav-bar">
-        <NavBar />
-      </div>
-      <div className="main-content">
-        <h3>main content goes here / react routes</h3>
-      </div>
-    </ GlobalProvider>
+    <BrowserRouter>
+      <GlobalProvider>
+        <div className="nav-bar">
+          <NavBar />
+        </div>
+        <div className="main-content">
+          <Routes>
+            <Route path='/' element={<Statement />} />
+            <Route path='/add' element={<Add />} />
+            <Route path='/settings' element={<Settings />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </div>
+      </ GlobalProvider>
+    </BrowserRouter>
   );
 }
 

@@ -5,13 +5,13 @@ const initialState = {
     navBarItems: [
     {
         label: 'statement',
-        to: 'react/route',
+        to: '/',
         icon: '../assets/icons/stats-chart-outline.svg',
         active: true
     },
     {
         label: 'add',
-        to: 'react/route',
+        to: '/add',
         icon: '../assets/icons/cash-outline.svg',
         subitems: [
             {label: 'income', to: 'react/route', icon: './assets/icons/add-circle-outline.svg'},
@@ -21,7 +21,7 @@ const initialState = {
     },
     {
         label: 'settings',
-        to: 'react/route',
+        to: '/settings',
         icon: '../assets/icons/settings-outline.svg',
         active: false
     }
