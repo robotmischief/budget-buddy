@@ -1,6 +1,8 @@
+import Header from '../components/Header';
+
 const Add = () => {
     return (
-        <h3>Add</h3>
+        <Header title='Add new Record' />
     );
 };
 

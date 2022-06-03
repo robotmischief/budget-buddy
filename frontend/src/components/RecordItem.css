@@ -1,0 +1,70 @@
+.item-container {
+    width: 90%;
+    border-radius: 8px;
+    background-color: grey;
+    height: 64px;
+    margin: 12px 0;
+    display: flex;
+}
+
+.item-container .category {
+    width: 8px;
+    height: 100%;
+    border-radius: 8px 0 0 8px;
+}
+.item-container .category.earnt {
+    background-color: greenyellow;
+}
+.item-container .category.spent {
+    background-color: tomato;
+}
+
+.item-container .record-data {
+    /* border: 1px solid red; */
+    width: 50px;
+    height: 100%;
+    flex-grow: 1;
+}
+.item-container .record-data .record-details {
+    display: flex;
+    padding: 3px;
+}
+.item-container .delete-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background-color: wheat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin-right: 12px;
+}
+.delete-btn img {
+    width: 22px;
+    height: 22px;
+}
+
+.item-container .record-data .amount {
+    font-size: 22px;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 12px;
+}
+.item-container .record-data .amount span {
+    font-size: 16px;
+}
+
+.item-container .record-data .date,
+.item-container .record-data .label {
+    font-size: 12px;
+    font-weight: 100;
+    display: flex;
+
+}
+.item-container .record-data .date img,
+.item-container .record-data .label img {
+    width: 18px;
+    height: 18px;
+    margin: 0 6px;
+}

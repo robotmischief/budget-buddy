@@ -1,6 +1,16 @@
+import Header from '../components/Header';
+import BalanceCard from '../components/BalanceCard';
+import RecordList from '../components/RecordList';
+
 const Statement = () => {
     return (
-        <h3>Statement</h3>
+        <>
+            <div className="page-container">
+                <Header title='Statement' />
+                <BalanceCard />
+                <RecordList />
+            </div>
+        </>
     );
 };
 

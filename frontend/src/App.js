@@ -15,7 +15,7 @@ function App() {
         <div className="nav-bar">
           <NavBar />
         </div>
-        <div className="main-content">
+        <div className="main-content no-scroll">
           <Routes>
             <Route path='/' element={<Statement />} />
             <Route path='/add' element={<Add />} />

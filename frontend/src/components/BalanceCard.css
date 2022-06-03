@@ -1,0 +1,50 @@
+.balance-container {
+    background-color: rgba(240, 248, 255,.5);
+    border-radius: 12px;
+    align-self: center;
+    width: 80%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.balance-container .header {
+    color: white;
+    font-weight: 300;
+    font-size: 26px;
+    width: 100%;
+    margin-bottom: 6px;
+}
+
+.balance-container .graph-spent {
+    width: 90%;
+    height: 30px;
+    background-color: tomato;
+    border-radius: 25px;
+}
+
+.balance-container .graph-earnt {
+    width: 60%;
+    height: 100%;
+    background-color: greenyellow;
+    border-radius: 12px;
+}
+
+.balance-container .footer {
+    width: 100%;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+}
+.balance-container .footer p {
+    font-size: 12px;
+    color: black;
+    display: inline-block;
+    margin-left: 6px;
+}
+.balance-container .footer img {
+    width: 19px;
+    height: 19px;
+}

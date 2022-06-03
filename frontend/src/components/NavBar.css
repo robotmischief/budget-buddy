@@ -10,6 +10,7 @@
     justify-content: space-around;
     border-radius: 12px 12px 0 0;
     background-color: var(--navbarbackground);
+    z-index: 1;
 }
 
 .nav-list .nav-item {
@@ -127,4 +128,29 @@
 }
 .nav-list .nav-item.active p {
     transform: translateY(0);
+}
+
+/* media query for wider screens > tabelts && desktops */
+@media screen and (min-width: 999px) {
+    .nav-list {
+        left: 0;
+        top: 50%;
+        width: var(--navbarheight);
+        height: 50%;
+        transform: translateY(-50%);
+        border-radius: 0 12px 12px 0;
+        flex-direction: column;
+    }
+
+    .nav-list .nav-item p {
+        /* border: 1px solid green; */
+        left: 0;
+        transform: translateX(-100%);
+        height: 100%;
+        width: auto;
+        writing-mode: vertical-rl;
+    }
+    .nav-list .nav-item.active p {
+        transform: translateX(90%);
+    }
 }

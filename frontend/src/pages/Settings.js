@@ -1,6 +1,8 @@
+import Header from '../components/Header';
+    
 const Settings = () => {
     return (
-        <h3>Settings</h3>
+        <Header title={'Settings'} />
     );
 };
 
