@@ -25,6 +25,7 @@
 /* layout (mobile first) */
 body {
     /* overflow: hidden; */
+    /* TODO: workaround to hide scrollbars. using overflow blocks react getting Y offset */
     background-color: var(--appbackground);
     color: var(--apptextcolor);
 }
@@ -43,6 +44,7 @@ body {
 
 .no-scroll {
     /* hide scrollbars but allows to scroll */
+    /* (not working with react useEffect to get scrollY of components) */
     overflow-y: scroll;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;  /* Internet Explorer 10+ */

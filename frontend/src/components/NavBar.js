@@ -1,13 +1,12 @@
 import './NavBar.css';
-import React, { Fragment, useContext } from 'react';
+import React, { useContext } from 'react';
 import { NavBarItem } from './NavBarItem';
 import { GlobalContext } from '../context/GlobalState';
 
 
 const NavBar = () => {
-
     const { navBarItems, handleNavBarClick } = useContext(GlobalContext);
-    
+
     return (
         <>
             <ul className="nav-list">

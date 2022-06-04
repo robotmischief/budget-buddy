@@ -1,9 +1,11 @@
 import './BalanceCard.css';
 
-const BalanceCard = () => {
+const BalanceCard = ({compactView}) => {
+    const compactStyle = (compactView) ? 'compact' : '';
+
     return (
-        <div className="balance-container">
-            <div className="header">BALANCE</div>
+        <div className={`balance-container ${compactStyle}`}>
+            <div className='header' >BALANCE</div>
             <div className="graph-spent">
                 <div className="graph-earnt"></div>
             </div>

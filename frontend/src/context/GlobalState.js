@@ -41,6 +41,7 @@ export const GlobalProvider = ({children}) => {
         });
     }
     
+    
     return (
         <GlobalContext.Provider value={{navBarItems: state.navBarItems, handleNavBarClick}}>
             {children}
