@@ -125,9 +125,11 @@
 
 .nav-list .nav-item.active .nav-icon img {
     transform: translateY(-110%);
+    cursor: default;
 }
 .nav-list .nav-item.active p {
     transform: translateY(0);
+    cursor: default;
 }
 
 /* media query for wider screens > tablets && desktops */

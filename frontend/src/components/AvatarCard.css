@@ -1,0 +1,25 @@
+.avatar-photo {
+    margin-top: 12px;
+    position: relative;
+    width: 100%;
+    /* border: 1px solid red; */
+}
+.avatar-photo img {
+    border-radius: 50%;
+}
+.upload-btn {
+    position: absolute;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background-color: aliceblue;
+    left: 50%;
+    transform: translate(50%,-100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.upload-btn img {
+    width: 60%;
+    height: 60%;
+}

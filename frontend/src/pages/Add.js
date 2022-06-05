@@ -1,8 +1,18 @@
 import Header from '../components/Header';
+import CategoryCard from '../components/CategoryCard';
+import AmountCard from '../components/AmountCard';
 
 const Add = () => {
     return (
-        <Header title='Add new Record' />
+        <>
+        <div className="page-container">
+                <Header title='Add new Record' />
+            <div className="form-container">
+                <CategoryCard />
+                <AmountCard />
+            </div>
+        </div>
+        </>
     );
 };
 
