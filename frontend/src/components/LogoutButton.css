@@ -6,13 +6,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    align-self: center;
+    margin-bottom: 6px;
+    cursor: pointer;
 }
 .logout-btn img {
     width: 60%;
     height: 60%;
+    transform: translateX(4px);
 }
-.logout-btn p {
-    font-size: 14px;
+p {
+    font-size: 12px;
     font-weight: 300;
     text-align: center;
 }

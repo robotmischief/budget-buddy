@@ -2,15 +2,16 @@
     margin-top: 12px;
     position: relative;
     width: 100%;
-    /* border: 1px solid red; */
 }
 .avatar-photo img {
     border-radius: 50%;
+    width: 112px;
+    height: 112px;
 }
 .upload-btn {
     position: absolute;
-    width: 58px;
-    height: 58px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background-color: aliceblue;
     left: 50%;
@@ -22,4 +23,23 @@
 .upload-btn img {
     width: 60%;
     height: 60%;
+}
+.user-data-container {
+    margin-top: 12px;
+}
+.user-data-container .subtext {
+    margin-bottom: 6px;
+}
+.user-data-container input[type=text] {
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 12px;
+    width: 200px;
+}
+.login-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 22px;
+    flex-direction: column;
+    align-content: center;
 }

@@ -1,11 +1,18 @@
 /* small sanitizer && default font */
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Anybody:wght@400;600&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Titan+One&display=swap');
 * {
+    font-family: 'Titillium Web', sans-serif;;
+    font-family: 'Anybody', cursive;
+    font-family: 'Open Sans', sans-serif;
+
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Titan One', cursive;
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Titillium Web', sans-serif;;
     font-weight: 200;
 }
 
@@ -41,6 +48,18 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+}
+.page-container::before {
+    content: '';
+    background-color: dodgerblue;
+    height: 140px;
+    width: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: fixed;
+    top: 0;
+    border-radius: 0 0 50% 50%;
+    z-index: -99;
 }
 
 .form-container {

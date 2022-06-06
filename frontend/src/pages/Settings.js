@@ -5,9 +5,10 @@ import LogoutButton from '../components/LogoutButton';
 const Settings = () => {
     return (
         <>
+        <div className="page-container">
             <Header title={'Settings'} />
             <AvatarCard />
-            <LogoutButton />
+        </div>
         </>
     );
 };

@@ -49,6 +49,7 @@
     width: 100%;
     text-align: center;
     color: black;
+    font-size: 16px;
     font-weight: 300;
     transition: transform .5s ease;
 }
@@ -61,7 +62,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .nav-list .nav-item .sub-items img {
@@ -103,12 +103,12 @@
 
 .nav-dot {
     background-color: var(--accentcolor);
-    width: calc(var(--navbarheight) + 12px);
-    height: calc(var(--navbarheight) + 12px);
+    width: calc(var(--navbarheight) + 4px);
+    height: calc(var(--navbarheight) + 4px);
     border-radius: 50%;
     position: absolute;
-    outline: 8px solid var(--appbackground);
-    top: -60%;
+    outline: 6px solid var(--appbackground);
+    top: -55%;
     transform: translateX(-50%);
     transition: left .5s ease;
 }
@@ -128,7 +128,7 @@
     cursor: default;
 }
 .nav-list .nav-item.active p {
-    transform: translateY(0);
+    transform: translateY(-12%);
     cursor: default;
 }
 
@@ -146,7 +146,7 @@
     }
 
     .nav-list .nav-item.active .nav-icon img {
-        transform: translateX(150%);
+        transform: translateX(125%);
     }
 
     .nav-list .nav-item p {
@@ -158,7 +158,7 @@
         writing-mode: vertical-rl;
     }
     .nav-list .nav-item.active p {
-        transform: translateX(45%);
+        transform: translateX(35%);
     }
 
     .nav-dot {
