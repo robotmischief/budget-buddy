@@ -9,7 +9,7 @@
     align-items: center;
     padding: 6px 0 calc(var(--navbarheight) + 22px) 0;
     position: relative;
-    z-index: -10;
+    /* z-index: -10; */
     color: var(--apptextcolordark);
 }
 
@@ -39,13 +39,15 @@
 
 .selector select {
     font-size: 14px;
+    font-weight: 300;
     color: var(--apptextcolordark);
     padding: 2px;
     border-radius: 6px;
     outline: none;
-    border: 1px solid red;
+    border: none;
     cursor: pointer;
     margin-top: 6px;
+    color: black;
 }
 
 .recorditems-container {

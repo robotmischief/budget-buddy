@@ -39,6 +39,8 @@
     width: 200px;
     border: 0;
     outline: none;
+    font-size: 22px;
+    font-family: 'Titillium Web', sans-serif;
 }
 .login-container {
     display: flex;

@@ -17,7 +17,7 @@ const RecordItem = ({type}) => {
                     </div>
                 </div>
             </div>
-            <div className="item-btn"><img src="./assets/icons/create-outline.svg" alt="" /></div>
+            <div className="item-btn" onClick={()=>alert('clicked')}><img src="./assets/icons/create-outline.svg" alt="" /></div>
             <div className="item-btn"><img src="./assets/icons/trash-outline.svg" alt="" /></div>
         </div>
     );

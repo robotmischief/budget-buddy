@@ -9,7 +9,7 @@
     justify-content: space-around;
     border-radius: 12px 12px 0 0;
     background-color: var(--navbarbackground);
-    z-index: 1;
+    z-index: 99;
 }
 
 .nav-list .nav-item {
