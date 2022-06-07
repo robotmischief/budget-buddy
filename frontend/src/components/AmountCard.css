@@ -1,0 +1,73 @@
+.amount-container {
+    background-color: var(--cardgreymid);
+    width: 80%;
+    border-radius: 12px;
+    margin-top: 22px;
+    margin-bottom: 32px;
+    padding: 22px;
+    position: relative;
+}
+
+.amount-container input[type=number] {
+    font-size: 28px;
+    font-weight: 300;
+    border-radius: 6px;
+    width: 100%;
+    text-align: center;
+    border: 0;
+    outline: 0;
+    margin-top: 12px;
+}
+
+.shortcuts-container {
+    width: 100%;
+}
+.title {
+    font-size: 22px;
+    font-weight: 300;
+    font-family: 'Titan One', cursive;
+    color: var(--apptextcolordark);
+}
+.shortcuts-container .subtitle {
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 12px;
+    color: var(--apptextcolordark);
+}
+
+.btns-container {
+    margin-top: 6px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto auto;
+}
+
+.clean-btn {
+    display: none;
+    cursor: pointer;
+    color: var(--cardgreylight);
+    box-shadow: 0 0 12px 0 var(--shadows);
+}
+
+/* media query for wider screens > tablets && desktops */
+@media screen and (min-height: 730px) {
+    .clean-btn {
+        display: block;
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        background-color: var(--cardgreylight);
+        left: 50%;
+        bottom: 10px;
+        transform: translate(-50%, 100%);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .clean-btn img {
+        width: 48px;
+        height: 48px;
+        opacity: .5;
+    }
+}

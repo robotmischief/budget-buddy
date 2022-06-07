@@ -1,0 +1,26 @@
+.category-container {
+    background-color: var(--cardgreymid);
+    width: 80%;
+    border-radius: 12px;
+    margin-top: 28px;
+}
+
+.category-container .title {
+    font-family: 'Titan One', cursive;
+    font-size: 20px;
+    font-weight: 300;
+    margin-top: 12px;
+    color: var(--apptextcolordark);
+}
+
+.category-container select {
+    width: 80%;
+    font-size: 18px;
+    border-radius: 6px;
+    margin-top: 12px;
+    margin-bottom: 22px;
+    padding: 4px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}

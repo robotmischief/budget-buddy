@@ -1,0 +1,187 @@
+.nav-list {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    width: 80%;
+    height: var(--navbarheight);
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-around;
+    border-radius: 12px 12px 0 0;
+    background-color: var(--navbarbackground);
+    box-shadow: 0 0 12px 0 var(--shadows);
+    z-index: 99;
+}
+
+.nav-list .nav-item {
+    position: relative;
+    width: var(--navbarheight);
+    height:var(--navbarheight);
+    list-style: none;
+    cursor: pointer;
+}
+
+.nav-list .nav-item .nav-icon {
+    position: absolute;
+    width: 100%; 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-list .nav-item .nav-icon img {
+    pointer-events: none;
+    width: 45%;
+    height: 45%;
+    z-index: 1;
+    transition: transform .5s ease;
+    opacity: .5;
+}
+
+.nav-list .nav-item p {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(200%);
+    width: 100%;
+    text-align: center;
+    color: var(navbartextcolor);
+    font-size: 16px;
+    font-weight: 300;
+    transition: transform .5s ease;
+}
+
+.nav-list .nav-item .sub-items {
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-list .nav-item .sub-items img {
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: .5;
+}
+
+/* submenu items */
+.nav-list .nav-item .sub-items .nav-sub-dot {
+    border-radius: 50%;
+    height: calc(var(--navbarheight) - 12px);
+    width: calc(var(--navbarheight) - 12px);
+    position: absolute;
+    box-shadow: 0 0 12px 0 var(--shadows);
+}
+.nav-sub-dot.left {
+    opacity: 0;
+    background-color: var(--earntcolor);
+    transition: all .2s ease;
+}
+.nav-sub-dot.left.active {
+    transform: translate(-90%, -170%);
+    opacity: 1;
+}
+
+.nav-sub-dot.right {
+    opacity: 0;
+    background-color: var(--spentcolor);
+    transition: all .2s ease;
+}
+.nav-sub-dot.right.active {
+    transform: translate(90%, -170%);
+    opacity: 1;
+}
+
+.nav-dot {
+    background-color: var(--accentcolor);
+    width: calc(var(--navbarheight) + 4px);
+    height: calc(var(--navbarheight) + 4px);
+    border-radius: 50%;
+    position: absolute;
+    outline: 6px solid var(--appbackground);
+    top: -55%;
+    transform: translateX(-50%);
+    transition: left .5s ease;
+}
+
+.nav-list .nav-item:nth-child(1).active ~ .nav-dot {
+    left: 16.66%;
+}
+.nav-list .nav-item:nth-child(2).active ~ .nav-dot {
+    left: 50%;
+}
+.nav-list .nav-item:nth-child(3).active ~ .nav-dot {
+    left: 83.3%;
+}
+
+.nav-list .nav-item.active .nav-icon img {
+    transform: translateY(-110%);
+    cursor: default;
+}
+.nav-list .nav-item.active p {
+    transform: translateY(70%);
+    cursor: default;
+}
+
+/* media query for wider screens > tablets && desktops */
+@media screen and (min-width: 999px) {
+    .nav-list {
+        left: 0;
+        top: 50%;
+        width: var(--navbarheight);
+        height: 50%;
+        transform: translateY(-50%);
+        border-radius: 0 12px 12px 0;
+        flex-direction: column;
+    }
+
+    .nav-list .nav-item.active .nav-icon img {
+        transform: translateX(125%);
+    }
+
+    .nav-list .nav-item p {
+        left: 0;
+        top: 5%;
+        transform: translateX(-100%);
+        height: 100%;
+        width: auto;
+        writing-mode: vertical-rl;
+    }
+    .nav-list .nav-item.active p {
+        transform: translateX(35%);
+    }
+
+    .nav-dot {
+        position: absolute;
+        transform: translate(50%, -50%);
+        transition: top .5s ease;
+    }
+    .nav-list .nav-item:nth-child(1).active ~ .nav-dot {
+        top: 16.66%;
+        left: 0;
+    }
+    .nav-list .nav-item:nth-child(2).active ~ .nav-dot {
+        top: 50%;
+        left: 0;
+    }
+    .nav-list .nav-item:nth-child(3).active ~ .nav-dot {
+        top: 83.3%;
+        left: 0;
+    }
+
+    .nav-sub-dot.left.active {
+        transform: translate(190%, -110%);
+        opacity: 1;
+    }
+
+    .nav-sub-dot.right.active {
+        transform: translate(190%, 110%);
+        opacity: 1;
+    }
+}

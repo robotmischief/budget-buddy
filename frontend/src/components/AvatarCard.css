@@ -1,0 +1,53 @@
+.avatar-photo {
+    margin-top: 18px;
+    position: relative;
+    width: 100%;
+}
+.avatar-photo img {
+    border-radius: 50%;
+    width: 112px;
+    height: 112px;
+}
+.upload-btn {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--cardgreylight);
+    left: 50%;
+    transform: translate(50%,-100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 12px 0 var(--shadows);
+}
+.upload-btn img {
+    width: 60%;
+    height: 60%;
+    opacity: .5;
+}
+.user-data-container {
+    margin-top: 12px;
+}
+.user-data-container .subtext {
+    margin-bottom: 6px;
+    color: var(--apptextcolordark);
+}
+.user-data-container input[type=text] {
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 12px;
+    width: 200px;
+    border: 0;
+    outline: none;
+    font-size: 22px;
+    font-family: 'Titillium Web', sans-serif;
+}
+.login-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 22px;
+    flex-direction: column;
+    align-content: center;
+}

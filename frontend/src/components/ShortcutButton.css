@@ -1,0 +1,13 @@
+button {
+    width: 62px;
+    height: 62px;
+    border-radius: 12px;
+    margin: 6px;
+    border: 0;
+    background-color: var(--cardgreylight);
+    cursor: pointer;
+    font-family: 'Titan One', cursive;
+    font-size: 18px;
+    color: rgb(172, 161, 161);
+    box-shadow: 0 0 12px 0 var(--shadows);
+}

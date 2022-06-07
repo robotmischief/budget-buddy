@@ -1,0 +1,98 @@
+.balance-container {
+    background-color: var(--cardgreylight);
+    border-radius: 12px;
+    align-self: center;
+    width: 80%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    box-shadow: 0 0 12px 0 var(--shadows);
+}
+.balance-container.compact {
+    position: sticky;
+    top: 0;
+    border-radius: 0 0 12px 12px;
+}
+.balance-container .header {
+    color: var(--apptextcolordark);
+    font-weight: 300;
+    font-size: 26px;
+    width: 100%;
+    margin-top: 12px;
+    font-family: 'Titan One', cursive;
+}
+.balance-container.compact .header {
+    display: none;
+}
+
+.balance-container .earnt-spent-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.balance-container .earnt-spent-container .earnt,
+.balance-container .earnt-spent-container .spent {
+    width: 40%;
+    margin: 10px;
+}
+.earnt .title,
+.spent .title {
+    font-size: 16px;
+    color: var(--apptextcolordark);
+    font-family: 'Titan One', cursive;
+}
+.balance-container.compact .earnt .title,
+.balance-container.compact .spent .title {
+    display: none;
+}
+
+.earnt {
+    color: var(--earntcolor);
+}
+.spent {
+    color: var(--spentcolor);
+}
+.earnt .amount,
+.spent .amount {
+    font-size: 36px;
+    font-family: 'Titan One', cursive;
+}
+.amount span {
+    font-family: 'Titan One', cursive;
+    font-size: 22px;
+}
+.earnt .title,
+.spent .title {
+    color: var(--cardgreydark);
+    color: var(--apptextcolordark);
+}
+.balance-container .graph-spent {
+    width: 90%;
+    height: 30px;
+    background-color: var(--spentcolor);
+    border-radius: 25px;
+    margin-top: 6px;
+}
+.balance-container.compact .graph-spent {
+    margin-top: 22px;
+}
+
+.balance-container .graph-earnt {
+    width: 60%;
+    height: 100%;
+    background-color: var(--earntcolor);
+    border-radius: 12px;
+}
+
+.balance-container .footer {
+    width: 100%;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+}
+.balance-container.compact .footer {
+    display: none;
+}

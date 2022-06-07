@@ -1,0 +1,80 @@
+.item-container {
+    width: 90%;
+    border-radius: 8px;
+    background-color: var(--cardgreymid);
+    height: 64px;
+    margin: 12px 0;
+    display: flex;
+    cursor: pointer;
+}
+
+.item-container .category {
+    width: 8px;
+    height: 100%;
+    border-radius: 8px 0 0 8px;
+}
+.item-container .category.earnt {
+    background-color: var(--earntcolor);
+}
+.item-container .category.spent {
+    background-color: var(--spentcolor);
+}
+
+.item-container .record-data {
+    width: 50px;
+    height: 100%;
+    flex-grow: 1;
+}
+.item-container .record-data .record-details {
+    display: flex;
+    padding: 3px;
+}
+.item-container .item-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background-color: var(--cardgreylight);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin-right: 12px;
+    cursor: pointer;
+}
+.item-btn img {
+    width: 22px;
+    height: 22px;
+    opacity: .5;
+}
+
+.item-container .record-data .amount {
+    font-family: 'Titan One', cursive;
+    font-size: 22px;
+    text-align: left;
+    padding-left: 12px;
+    padding-top: 8px;
+}
+.amount.spent {
+    color: var(--spentcolor);
+}
+.amount.earnt {
+    color: var(--earntcolor);
+}
+
+.item-container .record-data .amount span {
+    font-size: 16px;
+}
+
+.item-container .record-data .date,
+.item-container .record-data .label {
+    font-size: 12px;
+    font-weight: 100;
+    display: flex;
+}
+.item-container .record-data .date img,
+.item-container .record-data .label img {
+    width: 18px;
+    height: 18px;
+    margin: 0 6px;
+    opacity: .5;
+}

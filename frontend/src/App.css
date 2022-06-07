@@ -1,0 +1,90 @@
+/* small sanitizer && default font */
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Titan+One&display=swap');
+* {
+    /* font-family: 'Titan One', cursive; */
+    font-family: 'Titillium Web', sans-serif;
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 200;
+}
+
+/* color palette and constants */
+:root {
+    --accentcolor: #fc9126;
+    --appbackground: #f3c599;
+    --apptextcolor: #fff;
+    --apptextcolordark: rgb(88, 88, 88);
+    --cardgreydark: #4e4e4e;
+    --cardgreymid: #ececec;
+    --cardgreylight: #f9f8f7;
+
+    --earntcolor: rgb(120, 211, 135);
+    --spentcolor: rgb(230, 74, 74);
+
+    --navbarbackground: var(--cardgreylight);
+    --navbartextcolor: var(--cardgreydark);
+    --navbarheight: 70px;
+
+    --shadows: rgba(17, 17, 17, .3);
+}
+
+/* layout (mobile first) */
+body {
+    /* overflow: hidden; */
+    /* TODO: workaround to hide scrollbars. using overflow blocks react getting Y offset */
+    background-color: var(--appbackground);
+    color: var(--apptextcolor);
+}
+
+.main-content {
+    padding-top: 12px;
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.page-container::before {
+    content: '';
+    background-color: var(--accentcolor);
+    height: 140px;
+    width: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: fixed;
+    top: 0;
+    border-radius: 0 0 50% 50%;
+    z-index: -99;
+}
+
+.form-container {
+    background-color: var(--cardgreylight);
+    border-radius: 12px;
+    min-width: 300px;
+    display: flex;
+    align-self: center;
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 12px 0 var(--shadows);
+}
+
+.no-scroll {
+    /* hide scrollbars but allows to scroll */
+    /* (not working with react useEffect to get scrollY of components) */
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+.no-scroll::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
