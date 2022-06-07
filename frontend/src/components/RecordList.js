@@ -5,21 +5,29 @@ const RecordList = () => {
     return (
       <div className="recordlist-container">
             <div className="header">
-              <p>RECORDS HISTORY</p>
+              <p>RECORD HISTORY</p>
             </div>
           <div className="recorditems-container">
-            <RecordItem />
-            <RecordItem />
-            <RecordItem />
-            <RecordItem />
-            <RecordItem />
-            <RecordItem />
-            <RecordItem />
-            <RecordItem />
-            <RecordItem />
-            <RecordItem />
+          <div className="selector">
+              <select value='latest10'>
+                  <option selected value="latest10">Latest 10</option>
+                  <option value="all">List All</option>
+                  <option value="earnt">Earnt</option>
+                  <option value="spent">Spent</option>
+              </select>
           </div>
-          <div className="footer"><img src='./assets/icons/list-outline.svg' alt='icon show all records'/><p>LIST ALL</p></div>
+            <RecordItem type='earnt' />
+            <RecordItem type='earnt' />
+            <RecordItem type='spent' />
+            <RecordItem type='earnt' />
+            <RecordItem type='spent' />
+            <RecordItem type='earnt' />
+            <RecordItem type='earnt' />
+            <RecordItem type='spent' />
+            <RecordItem type='spent' />
+            <RecordItem type='earnt' />
+          </div>
+          
       </div>
     );
 };

@@ -1,5 +1,5 @@
 .recordlist-container {
-    background-color: #f0f8ff;
+    background-color: var(--cardgreylight);
     border-radius: 12px 12px 0 0;
     align-self: center;
     width: 70%;
@@ -10,39 +10,42 @@
     padding: 6px 0 calc(var(--navbarheight) + 22px) 0;
     position: relative;
     z-index: -10;
+    color: var(--apptextcolordark);
 }
 
 .recordlist-container .header {
     position: absolute;
     top: 0;
-    background-color: dodgerblue;
+    background-color: var(--accentcolor);
     width: 100%;
-    height: 80px;
+    height: 120px;
     text-align: center;
     border-radius: 12px 12px 50% 50%;
 }
 
 .recordlist-container .header p {
-    margin-top: 12px;
-    font-weight: 600;
+    margin-top: 16px;
+    font-weight: 300;
+    font-size: 18px;
+    font-family: 'Titan One', cursive;
+    color: var(--apptextcolor);
 }
 
-.recordlist-container .footer {
+ .selector {
+    align-items: center;
     width: 100%;
-    height: 26px;
-    display: flex;
-    justify-content: center;
+    position: relative;
 }
 
-.recordlist-container .footer p {
-    font-size: 12px;
-    color: black;
-    display: inline-block;
-    margin-left: 6px;
-}
-.recordlist-container .footer img {
-    width: 19px;
-    height: 19px;
+.selector select {
+    font-size: 14px;
+    color: var(--apptextcolordark);
+    padding: 2px;
+    border-radius: 6px;
+    outline: none;
+    border: 1px solid red;
+    cursor: pointer;
+    margin-top: 6px;
 }
 
 .recorditems-container {
@@ -51,5 +54,5 @@
     flex-direction: column;
     align-items: center;
     z-index: 1;
-    margin-top: 28px;
+    margin-top: 32px;
 }

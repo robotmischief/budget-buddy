@@ -1,8 +1,8 @@
 .logout-btn {
-    width: 58px;
-    height: 58px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    background-color: aliceblue;
+    background-color: var(--cardgreymid);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,13 +10,18 @@
     margin-bottom: 6px;
     cursor: pointer;
 }
+
 .logout-btn img {
-    width: 60%;
-    height: 60%;
+    width: 50%;
+    height: 50%;
     transform: translateX(4px);
+    opacity: .5;
 }
+
 p {
     font-size: 12px;
     font-weight: 300;
     text-align: center;
+    color: var(--apptextcolordark);
+    margin-bottom: 22px;
 }

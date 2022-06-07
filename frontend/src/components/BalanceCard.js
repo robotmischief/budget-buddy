@@ -19,7 +19,6 @@ const BalanceCard = ({compactView}) => {
                     <div className="amount">$25.<span>00</span></div>
                 </div>
             </div>
-            <div className="footer"><img src="./assets/icons/list-outline.svg" alt="icon balance details" /><p>DETAILS</p></div>
         </div>
     );
 };

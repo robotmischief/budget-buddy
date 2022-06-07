@@ -1,6 +1,5 @@
 .balance-container {
-    /* border: 1px solid yellow; */
-    background-color: rgba(240, 248, 255, 1);
+    background-color: var(--cardgreylight);
     border-radius: 12px;
     align-self: center;
     width: 80%;
@@ -16,59 +15,62 @@
     border-radius: 0 0 12px 12px;
 }
 .balance-container .header {
-    /* border: 1px solid yellowgreen; */
-    color: black;
+    color: var(--apptextcolordark);
     font-weight: 300;
     font-size: 26px;
     width: 100%;
     margin-top: 12px;
+    font-family: 'Titan One', cursive;
 }
 .balance-container.compact .header {
     display: none;
 }
 
 .balance-container .earnt-spent-container {
-    /* border: 1px solid tomato; */
     display: flex;
     width: 100%;
     justify-content: center;
 }
 .balance-container .earnt-spent-container .earnt,
 .balance-container .earnt-spent-container .spent {
-    /* border: 1px solid whitesmoke; */
     width: 40%;
     margin: 10px;
 }
 .earnt .title,
 .spent .title {
-    font-weight: 300;
-    font-size: 14px;
-    color: black;
+    font-size: 16px;
+    color: var(--apptextcolordark);
+    font-family: 'Titan One', cursive;
 }
 .balance-container.compact .earnt .title,
 .balance-container.compact .spent .title {
     display: none;
 }
-.earnt .amount,
-.spent .amount {
-    font-weight: 600;
-    font-size: 22px;
-}
-.amount span {
-    font-size: 16px;
-}
+
 .earnt {
-    color: yellowgreen;
+    color: var(--earntcolor);
 }
 .spent {
-    color: tomato;
+    color: var(--spentcolor);
 }
-
+.earnt .amount,
+.spent .amount {
+    font-size: 36px;
+    font-family: 'Titan One', cursive;
+}
+.amount span {
+    font-family: 'Titan One', cursive;
+    font-size: 22px;
+}
+.earnt .title,
+.spent .title {
+    color: var(--cardgreydark);
+    color: var(--apptextcolordark);
+}
 .balance-container .graph-spent {
-    /* border: 1px solid dodgerblue; */
     width: 90%;
     height: 30px;
-    background-color: tomato;
+    background-color: var(--spentcolor);
     border-radius: 25px;
     margin-top: 6px;
 }
@@ -77,15 +79,13 @@
 }
 
 .balance-container .graph-earnt {
-    /* border: 1px solid pink; */
     width: 60%;
     height: 100%;
-    background-color: greenyellow;
+    background-color: var(--earntcolor);
     border-radius: 12px;
 }
 
 .balance-container .footer {
-    /* border: 1px solid palegoldenrod; */
     width: 100%;
     height: 26px;
     display: flex;
@@ -93,16 +93,4 @@
 }
 .balance-container.compact .footer {
     display: none;
-}
-
-.balance-container .footer p {
-    font-size: 12px;
-    font-weight: 300;
-    color: black;
-    display: inline-block;
-    margin-left: 6px;
-}
-.balance-container .footer img {
-    width: 19px;
-    height: 19px;
 }

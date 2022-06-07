@@ -3,4 +3,10 @@ button {
     height: 62px;
     border-radius: 12px;
     margin: 6px;
+    border: 0;
+    background-color: var(--cardgreylight);
+    cursor: pointer;
+    font-family: 'Titan One', cursive;
+    font-size: 18px;
+    color: var(--cardgreydark);
 }

@@ -1,14 +1,9 @@
 /* small sanitizer && default font */
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anybody:wght@400;600&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Titan+One&display=swap');
 * {
-    font-family: 'Titillium Web', sans-serif;;
-    font-family: 'Anybody', cursive;
-    font-family: 'Open Sans', sans-serif;
-
-    font-family: 'Open Sans', sans-serif;
-    font-family: 'Titan One', cursive;
+    /* font-family: 'Titan One', cursive; */
+    font-family: 'Titillium Web', sans-serif;
 
     margin: 0;
     padding: 0;
@@ -18,15 +13,22 @@
 
 /* color palette and constants */
 :root {
-    --appbackground: #111f27;
-    --navbarbackground: rgba(255, 255, 255, .8);
+    --accentcolor: #fc9126;
+    --appbackground: #f3c599;
     --apptextcolor: #fff;
-    --navbartextcolor: #394347;
-    --shadows: rgba(17, 17, 17, .8);
-    --accentcolor: dodgerblue;
+    --apptextcolordark: rgb(29, 29, 29);
+    --cardgreydark: #4e4e4e;
+    --cardgreymid: #ececec;
+    --cardgreylight: #f9f8f7;
+
+    --earntcolor: rgb(134, 240, 152);
+    --spentcolor: rgb(230, 74, 74);
+
+    --navbarbackground: var(--cardgreylight);
+    --navbartextcolor: var(--cardgreydark);
     --navbarheight: 70px;
-    --navbarincomecolor: rgb(134, 240, 152);
-    --navbarexpensecolor: rgb(230, 74, 74);
+
+    --shadows: rgba(17, 17, 17, .8);
 }
 
 /* layout (mobile first) */
@@ -51,7 +53,7 @@ body {
 }
 .page-container::before {
     content: '';
-    background-color: dodgerblue;
+    background-color: var(--accentcolor);
     height: 140px;
     width: 130%;
     left: 50%;
@@ -63,7 +65,7 @@ body {
 }
 
 .form-container {
-    background-color: white;
+    background-color: var(--cardgreylight);
     border-radius: 12px;
     min-width: 300px;
     display: flex;

@@ -1,5 +1,5 @@
 .amount-container {
-    background-color: gray;
+    background-color: var(--cardgreymid);
     width: 80%;
     border-radius: 12px;
     margin-top: 22px;
@@ -14,21 +14,25 @@
     border-radius: 6px;
     width: 100%;
     text-align: center;
+    border: 0;
+    outline: 0;
+    margin-top: 12px;
 }
 
 .shortcuts-container {
-    /* border: 1px solid red; */
     width: 100%;
 }
 .title {
     font-size: 22px;
     font-weight: 300;
-    /* margin-top: 6px; */
+    font-family: 'Titan One', cursive;
+    color: var(--apptextcolordark);
 }
 .shortcuts-container .subtitle {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 300;
     margin-top: 12px;
+    color: var(--apptextcolordark);
 }
 
 .btns-container {
@@ -40,6 +44,7 @@
 
 .clean-btn {
     display: none;
+    cursor: pointer;
 }
 
 /* media query for wider screens > tablets && desktops */
@@ -47,9 +52,9 @@
     .clean-btn {
         display: block;
         position: absolute;
-        width: 80px;
-        height: 80px;
-        background-color: rgb(223, 223, 223);
+        width: 70px;
+        height: 70px;
+        background-color: var(--cardgreylight);
         left: 50%;
         bottom: 10px;
         transform: translate(-50%, 100%);
@@ -61,5 +66,6 @@
     .clean-btn img {
         width: 48px;
         height: 48px;
+        opacity: .5;
     }
 }
