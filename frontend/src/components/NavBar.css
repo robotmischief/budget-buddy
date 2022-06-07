@@ -9,6 +9,7 @@
     justify-content: space-around;
     border-radius: 12px 12px 0 0;
     background-color: var(--navbarbackground);
+    box-shadow: 0 0 12px 0 var(--shadows);
     z-index: 99;
 }
 
@@ -75,6 +76,7 @@
     height: calc(var(--navbarheight) - 12px);
     width: calc(var(--navbarheight) - 12px);
     position: absolute;
+    box-shadow: 0 0 12px 0 var(--shadows);
 }
 .nav-sub-dot.left {
     opacity: 0;

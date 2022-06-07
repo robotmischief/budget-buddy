@@ -21,14 +21,14 @@
     --cardgreymid: #ececec;
     --cardgreylight: #f9f8f7;
 
-    --earntcolor: rgb(134, 240, 152);
+    --earntcolor: rgb(120, 211, 135);
     --spentcolor: rgb(230, 74, 74);
 
     --navbarbackground: var(--cardgreylight);
     --navbartextcolor: var(--cardgreydark);
     --navbarheight: 70px;
 
-    --shadows: rgba(17, 17, 17, .8);
+    --shadows: rgba(17, 17, 17, .3);
 }
 
 /* layout (mobile first) */
@@ -74,6 +74,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 0 0 12px 0 var(--shadows);
 }
 
 .no-scroll {

@@ -11,6 +11,7 @@
     position: relative;
     /* z-index: -10; */
     color: var(--apptextcolordark);
+    box-shadow: 0 0 12px 0 var(--shadows);
 }
 
 .recordlist-container .header {

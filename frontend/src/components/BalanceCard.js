@@ -12,11 +12,11 @@ const BalanceCard = ({compactView}) => {
             <div className="earnt-spent-container">
                 <div className="earnt">
                     <div className="title">EARNT</div>
-                    <div className="amount">$125.<span>00</span></div>
+                    <div className="amount"><span>$</span>125.<span>00</span></div>
                 </div>
                 <div className="spent">
                     <div className="title">SPENT</div>
-                    <div className="amount">$25.<span>00</span></div>
+                    <div className="amount"><span>$</span>25.<span>00</span></div>
                 </div>
             </div>
         </div>

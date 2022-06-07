@@ -45,10 +45,12 @@
 .clean-btn {
     display: none;
     cursor: pointer;
+    color: var(--cardgreylight);
+    box-shadow: 0 0 12px 0 var(--shadows);
 }
 
 /* media query for wider screens > tablets && desktops */
-@media screen and (min-height: 739px) {
+@media screen and (min-height: 730px) {
     .clean-btn {
         display: block;
         position: absolute;

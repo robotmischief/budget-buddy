@@ -2,13 +2,14 @@
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    background-color: var(--cardgreymid);
+    background-color: var(--cardgreylight);
     display: flex;
     align-items: center;
     justify-content: center;
     align-self: center;
     margin-bottom: 6px;
     cursor: pointer;
+    box-shadow: 0 0 12px 0 var(--shadows);
 }
 
 .logout-btn img {

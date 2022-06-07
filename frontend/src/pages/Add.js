@@ -6,7 +6,7 @@ const Add = () => {
     return (
         <>
         <div className="page-container">
-                <Header title='Add new Record' />
+                <Header title='Add New Record' />
             <div className="form-container">
                 <CategoryCard />
                 <AmountCard />

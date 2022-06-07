@@ -5,6 +5,7 @@
     height: 64px;
     margin: 12px 0;
     display: flex;
+    cursor: pointer;
 }
 
 .item-container .category {
@@ -38,6 +39,7 @@
     justify-content: center;
     align-self: center;
     margin-right: 12px;
+    cursor: pointer;
 }
 .item-btn img {
     width: 22px;
