@@ -1,13 +1,17 @@
 const express = require('express');
+
 const cors = require('cors');
-const pool = require('./db');
+// const pool = require('./config/db');
+const connectDB = require('./config/dbConnect');
 
 const app = express();
-const port = 5000; // TODO: setup host port
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 
+// pool.connect();
+connectDB();
 
 // ROUTES
 // for Records
