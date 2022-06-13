@@ -1,17 +1,24 @@
 const express = require('express');
-
-const cors = require('cors');
-// const pool = require('./config/db');
-const connectDB = require('./config/dbConnect');
+const db = require('./db');
 
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors());
 app.use(express.json());
 
-// pool.connect();
-connectDB();
+
+const getQuery = async ()=> {
+    try {
+        const res = await db.handleQuery('SELECT * FROM users WHERE user_id = $1', [1]);
+        console.log(res.rows[0]);
+    } catch (err) {
+        console.log(err.stack)
+      }
+};
+
+getQuery();
+
+
 
 // ROUTES
 // for Records
@@ -19,7 +26,7 @@ connectDB();
 app.post('/newrecord', async (req, res) => {
     try {
         const { description } = req.body;
-        const newRecord = await pool.query(
+        const newRecord = await db.handleQuery(
             'INSERT INTO records (description, user_id, type_id, amount) VALUES ($1, $2, $3, $4) RETURNING *', [description, "1", "2", 55]
             ); // TODO: replace hardcoded testing values 
         res.json(newRecord.rows[0]);
@@ -31,7 +38,7 @@ app.post('/newrecord', async (req, res) => {
 // get all records
 app.get('getrecords/all', async (req, res) => {
     try {
-        const records = await pool.query(
+        const records = await db.handleQuery(
             'SELECT * FROM records');
         res.json(records.rows);
     } catch (e) {
@@ -43,7 +50,7 @@ app.get('getrecords/all', async (req, res) => {
 app.get('getrecords/:amount', async (req, res) => {
     try {
         const { amount } = req.params;
-        const records = await pool.query(
+        const records = await db.handleQuery(
             'SELECT * FROM records ORDER BY created_at DESC LIMIT $1', [amount]);
         res.json(records.rows);
     } catch (e) {
@@ -55,7 +62,7 @@ app.get('getrecords/:amount', async (req, res) => {
 app.get('/getrecord/:id', async (req, res) => {
     try {
         const { recordId } = req.params;
-        const record = await pool.query(
+        const record = await db.handleQuery(
             'SELECT * FROM records WHERE record_id = $1', [recordId]);
         res.json(record.rows[0]);
     } catch (e) {
@@ -68,7 +75,7 @@ app.put('/updaterecord/:id', async (req, res) => {
     try {
         const recordId = req.params.id;
         const { description, amount } = req.body;
-        const updatedRecord = await pool.query(
+        const updatedRecord = await db.handleQuery(
             'UPDATE records SET description = $1, amount = $2 WHERE record_id = $3', [description, amount, recordId]);
         res.json('Record Updated Message Here'); // TODO: better message - UI feedback
     } catch (e) {
@@ -80,7 +87,7 @@ app.put('/updaterecord/:id', async (req, res) => {
 app.delete('/deleterecord/:id', async (req, res) => {
     try {
         const recordId = req.params.id;
-        const deletedRecord = pool.query(
+        const deletedRecord = db.handleQuery(
             'DELETE * FROM records WHERE record_id = $1', [ recordId ]);
         res.json('Record Deleted Message Here'); // TODO: better message - UI feedback
     } catch (e) {
