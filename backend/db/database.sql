@@ -43,6 +43,11 @@ CREATE USER demo WITH PASSWORD 'demo';
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO demo;
 INSERT INTO users (name, password, email) VALUES ('demo', 'demo', 'demo@demo.com');
 
---must have types to record
+--must have types for records
 INSERT INTO types (type_id, label) VALUES (1, 'INCOME');
 INSERT INTO types (type_id, label) VALUES (2, 'EXPENSE');
+
+--must have categories for records
+INSERT INTO categories (category_id, label) VALUES (1, 'SALARY');
+INSERT INTO categories (category_id, label) VALUES (2, 'FOOD');
+INSERT INTO categories (category_id, label) VALUES (3, 'OTHER');

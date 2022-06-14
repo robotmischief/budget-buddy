@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-
 const {
     createNewRecord,
     getAllRecords,
-    getSomeRecords,
+    getLatestRecords,
     getRecordById,
     updateRecord,
     deleteRecord
@@ -16,11 +15,23 @@ router
 .post(createNewRecord);
 
 router
-.route('/getrecords/all')
+.route('/get/all')
 .get(getAllRecords);
 
-// router
-// .route('/:id')
-// .delete(deleteTransaction);
+router
+.route('/get/:id')
+.get(getRecordById);
+
+router
+.route('/latest/:count')
+.get(getLatestRecords);
+
+router
+.route('/delete/:id')
+.delete(deleteRecord);
+
+router
+.route('/update/:id')
+.put(updateRecord);
 
 module.exports = router;
