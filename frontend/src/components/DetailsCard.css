@@ -1,0 +1,13 @@
+.details-container {
+    background-color: var(--cardgreymid);
+    width: 90%;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+.details-container .title {
+    font-family: 'Titan One', cursive;
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 8px;
+    color: var(--apptextcolordark);
+}

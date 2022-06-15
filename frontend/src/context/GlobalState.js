@@ -35,7 +35,12 @@ const initialState = {
         //dummy records for testing
         // { id: 1, created: '2022-11-22 01:10:00', userid: 1, type: 1, amount: 125.00, category: 1, description: 'user entered description of this record' },
         // { id: 2, created: '2022-11-22 01:11:00', userid: 1, type: 2, amount: 25.00, category: 2, description: 'user entered description of this record' }
-    ]
+    ],
+    addNewRecord: {
+        amount: 0,
+        description: '',
+        category: 3,
+    }
 };
 
 export const GlobalContext = createContext(initialState);
@@ -51,6 +56,30 @@ export const GlobalProvider = ({children}) => {
         });
     }
     
+    function handleAmount(num) {
+        // setAmount(num);
+    }
+
+    async function addNewRecord(newRecord) {
+        const config = {
+            headers: { 'Content-type' : 'application/json' }
+        };
+
+        try {
+            const res = await axios.post('/api/v1/records/new', newRecord, config);
+            dispatch({
+                type: 'RECORDS_NEW',
+                payload: res.data.data
+            });
+
+        } catch (error) {
+            dispatch({
+                type:'RECORDS_ERROR',
+                payload: error.response.data.error
+            });
+        }
+    }
+
     async function getLatestRecords(count = 10) {
         try {
             const res = await axios.get(`/api/v1/records/latest/${count}`);
@@ -115,7 +144,9 @@ export const GlobalProvider = ({children}) => {
             listFilter: state.listFilter, 
             handleNavBarClick,
             getLatestRecords,
-            handleListFilterChange
+            handleListFilterChange,
+            addNewRecord,
+            handleAmount
             }}>
             {children}
         </GlobalContext.Provider>

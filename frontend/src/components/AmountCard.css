@@ -1,33 +1,35 @@
 .amount-container {
     background-color: var(--cardgreymid);
-    width: 80%;
+    width: 90%;
     border-radius: 12px;
-    margin-top: 22px;
-    margin-bottom: 32px;
-    padding: 22px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding: 12px;
     position: relative;
 }
 
 .amount-container input[type=number] {
     font-size: 28px;
-    font-weight: 300;
+    font-weight: 600;
     border-radius: 6px;
     width: 100%;
     text-align: center;
     border: 0;
     outline: 0;
-    margin-top: 12px;
+    margin-top: 8px;
 }
 
 .shortcuts-container {
     width: 100%;
 }
-.title {
-    font-size: 22px;
-    font-weight: 300;
+.amount-container .title {
     font-family: 'Titan One', cursive;
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 8px;
     color: var(--apptextcolordark);
 }
+
 .shortcuts-container .subtitle {
     font-size: 18px;
     font-weight: 300;
@@ -50,7 +52,7 @@
 }
 
 /* media query for wider screens > tablets && desktops */
-@media screen and (min-height: 730px) {
+@media screen and (min-height: 690px) {
     .clean-btn {
         display: block;
         position: absolute;

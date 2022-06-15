@@ -19,7 +19,10 @@ export const AppReducer = (state, action) => {
                 listFilter: action.filterBy,
                 records: action.payload
             }
-
+        
+        case 'RECORDS_NEW':
+            return;
+            
         case 'RECORDS_ERROR':
             return {
                 ...state,

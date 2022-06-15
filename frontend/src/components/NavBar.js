@@ -5,7 +5,7 @@ import { GlobalContext } from '../context/GlobalState';
 
 
 const NavBar = () => {
-    const { navBarItems, handleNavBarClick } = useContext(GlobalContext);
+    const { navBarItems, handleNavBarClick, addNewRecord } = useContext(GlobalContext);
 
     return (
         <>

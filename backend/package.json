@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/robotmischief/budget-buddy#readme",
   "dependencies": {
-    "concurrently": "^7.2.1",
+    "concurrently": "^7.2.2",
     "cors": "2.8.5",
     "dotenv": "^16.0.1",
     "express": "4.18.1",

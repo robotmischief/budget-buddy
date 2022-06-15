@@ -1,8 +1,7 @@
-import { useState } from 'react';
 import './CategoryCard.css';
 
-const CategoryCard = () => {
-    const [category, setCategory] = useState('other');
+const CategoryCard = ({category}) => {
+    
     const handleCategory = ({target}) => {
         setCategory(target.value);
     };

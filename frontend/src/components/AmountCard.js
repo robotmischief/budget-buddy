@@ -1,10 +1,8 @@
-import { useState } from "react";
 import ShortcutButton from "./ShortcutButton";
 
 import './AmountCard.css';
 
-const AmountCard = () => {
-    const [amount, setAmount] = useState(0);
+const AmountCard = ({amount, setAmount}) => {
 
     const handleAmount = ({target}) => {
         setAmount(Number(target.value));
@@ -24,10 +22,7 @@ const AmountCard = () => {
                 <div className="subtitle">Shortcuts</div>
                 <div className="btns-container">
                     <ShortcutButton amount={5} onHandleClick={handleClick} />
-                    <ShortcutButton amount={10} onHandleClick={handleClick} />
-                    <ShortcutButton amount={15} onHandleClick={handleClick} />
                     <ShortcutButton amount={25} onHandleClick={handleClick} />
-                    <ShortcutButton amount={50} onHandleClick={handleClick} />
                     <ShortcutButton amount={100} onHandleClick={handleClick} />
                 </div>
             </div>
