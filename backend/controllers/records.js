@@ -131,6 +131,29 @@ exports.updateRecord = async (req, res, next) => {
     }
 }
 
+
+//@desc get all records of a specific type (1=earnt or 2=spent)
+//@route GET api/v1/records/type/:earntorspent
+//@access Public
+exports.getRecordsByType = async (req, res, next) => {
+    try {
+        const type_id = (req.params.earntorspent === 'earnt') ? 1 : 2;
+        const recordsByType = await db.handleQuery('SELECT * FROM records WHERE type_id = $1 ORDER BY created_at DESC', [type_id]);
+
+        return res.status(200).json({
+            success: true,
+            count: recordsByType.rows.length,
+            data: recordsByType.rows
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            error: error.message
+        });
+    }
+
+}
 // TODO: feature get records by category
 // TODO: feature get records by user
 // TODO: feature admin categories
