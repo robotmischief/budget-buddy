@@ -21,8 +21,15 @@ export const AppReducer = (state, action) => {
             }
         
         case 'RECORDS_NEW':
-            console.log(action.payload.test);
-            return;
+            const prevRecords = {...state.records};
+            console.log('hola prev record', prevRecords);
+            console.log('hola new new record', state.newRecord);
+            const tempNewRecord = {...state.newRecord};
+            const tempRecordsForDebbug = {...tempNewRecord, ...prevRecords};
+            console.log('NEW STATE RECORDS ', tempRecordsForDebbug);
+            return {
+                ...state, records: {...state.newRecord, ...prevRecords}
+            };
             
         case 'RECORDS_ERROR':
             return {
@@ -40,7 +47,7 @@ export const AppReducer = (state, action) => {
 
         case 'NEWRECORD_DESCRIPTION':
             const newRecordDescription = {...state.newRecord};
-            newRecordDescription.description = action.payload.description;
+            newRecordDescription.description = action.payload;
             return {
                 ...state,
                 newRecord: newRecordDescription
@@ -67,7 +74,7 @@ export const AppReducer = (state, action) => {
 
         case 'NEWRECORD_CATEGORY':
             const newRecordCategory = {...state.newRecord};
-            newRecordCategory.category = action.payload.category;
+            newRecordCategory.category_id = action.payload;
             return {
                 ...state,
                 newRecord: newRecordCategory

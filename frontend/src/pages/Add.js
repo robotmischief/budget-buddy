@@ -9,7 +9,7 @@ const Add = () => {
 
     const { newRecord, handleAmount, handleCategory, handleDescription, handleClear, handleAmountShortcut } = useContext(GlobalContext);
 
-    const { category, description, amount } = newRecord;
+    const { category_id, description, amount } = newRecord;
 
     return (
         <>
@@ -17,7 +17,7 @@ const Add = () => {
                     <Header title='Add New Record' />
                 <div className="form-container">
                     <DetailsCard
-                        category = {category}
+                        category = {category_id}
                         description = {description}
                         handleDescription = {handleDescription}
                         handleCategory = {handleCategory}

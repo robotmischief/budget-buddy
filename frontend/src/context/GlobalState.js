@@ -40,7 +40,7 @@ const initialState = {
     newRecord: {
         amount: 0,
         description: '',
-        category: 3,
+        category_id: 3,
     }
 };
 
@@ -82,7 +82,7 @@ export const GlobalProvider = ({children}) => {
         const newDescription = target.value;
         dispatch({
             type: 'NEWRECORD_DESCRIPTION',
-            payload: { description: newDescription }
+            payload: newDescription
         });
     }
 
@@ -94,19 +94,17 @@ export const GlobalProvider = ({children}) => {
         });
     }
 
-    async function handleNewRecord() {
+    async function handleNewRecord(typeofRecord) {
         const config = {
             headers: { 'Content-type' : 'application/json' }
         };
-        const newRecordToAdd = {
-            //build record
-        }
+        state.newRecord['user_id'] = 1;
+        state.newRecord['type_id'] = (typeofRecord);
         try {
             // const res = await axios.post('/api/v1/records/new', newRecord, config);
+            console.log('NEW RECORD FROM STATE: ', state.newRecord);
             dispatch({
                 type: 'RECORDS_NEW',
-                // payload: res.data.data
-                payload: {test: 'test'}
             });
 
         } catch (error) {
