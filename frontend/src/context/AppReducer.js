@@ -21,13 +21,57 @@ export const AppReducer = (state, action) => {
             }
         
         case 'RECORDS_NEW':
+            console.log(action.payload.test);
             return;
             
         case 'RECORDS_ERROR':
             return {
                 ...state,
                 error: action.payload.error
-            }
+            };
+
+        case 'NEWRECORD_AMOUNT':
+            const newRecordAmount = {...state.newRecord};
+            newRecordAmount.amount = action.payload.amount;
+            return {
+                ...state,
+                newRecord: newRecordAmount
+            };
+
+        case 'NEWRECORD_DESCRIPTION':
+            const newRecordDescription = {...state.newRecord};
+            newRecordDescription.description = action.payload.description;
+            return {
+                ...state,
+                newRecord: newRecordDescription
+            };
+
+        case 'NEWRECORD_CLEAR':
+            const clearRecord = {
+                amount: 0,
+                description: '',
+                category: 3,
+            };
+            return {
+                ...state,
+                newRecord: clearRecord
+            };
+        
+        case 'NEWRECORD_SHORTCUT':
+            const shortCutRecord = {...state.newRecord};
+            shortCutRecord.amount += action.payload.amount;
+            return {
+                ...state,
+                newRecord: shortCutRecord
+            };
+
+        case 'NEWRECORD_CATEGORY':
+            const newRecordCategory = {...state.newRecord};
+            newRecordCategory.category = action.payload.category;
+            return {
+                ...state,
+                newRecord: newRecordCategory
+            };
 
         default:
             return state;

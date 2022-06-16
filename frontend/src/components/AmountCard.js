@@ -1,17 +1,7 @@
 import ShortcutButton from "./ShortcutButton";
-
 import './AmountCard.css';
 
-const AmountCard = ({amount, setAmount}) => {
-
-    const handleAmount = ({target}) => {
-        setAmount(Number(target.value));
-    };
-
-    const handleClick = (value) => {
-        const newAmount = amount + value;
-        setAmount(newAmount);
-    };
+const AmountCard = ({amount, handleAmount, handleClear, handleAmountShortcut}) => {
 
     return (
         <>
@@ -21,12 +11,12 @@ const AmountCard = ({amount, setAmount}) => {
             <div className="shortcuts-container">
                 <div className="subtitle">Shortcuts</div>
                 <div className="btns-container">
-                    <ShortcutButton amount={5} onHandleClick={handleClick} />
-                    <ShortcutButton amount={25} onHandleClick={handleClick} />
-                    <ShortcutButton amount={100} onHandleClick={handleClick} />
+                    <ShortcutButton amountBTN={5} onHandleClick={handleAmountShortcut} />
+                    <ShortcutButton amountBTN={25} onHandleClick={handleAmountShortcut} />
+                    <ShortcutButton amountBTN={100} onHandleClick={handleAmountShortcut} />
                 </div>
             </div>
-            <div className="clean-btn" onClick={()=>setAmount(0)}><img src="../assets/icons/close-outline.svg" alt="icon clear amount" /></div>
+            <div className="clean-btn" onClick={handleClear}><img src="../assets/icons/close-outline.svg" alt="icon clear amount" /></div>
         </div>
         </>
     )

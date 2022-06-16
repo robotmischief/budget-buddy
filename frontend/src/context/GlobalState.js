@@ -36,7 +36,8 @@ const initialState = {
         // { id: 1, created: '2022-11-22 01:10:00', userid: 1, type: 1, amount: 125.00, category: 1, description: 'user entered description of this record' },
         // { id: 2, created: '2022-11-22 01:11:00', userid: 1, type: 2, amount: 25.00, category: 2, description: 'user entered description of this record' }
     ],
-    addNewRecord: {
+
+    newRecord: {
         amount: 0,
         description: '',
         category: 3,
@@ -56,20 +57,56 @@ export const GlobalProvider = ({children}) => {
         });
     }
     
-    function handleAmount(num) {
-        // setAmount(num);
+    function handleAmount({target}) {
+        const newAmount = parseFloat(target.value);
+        dispatch({
+            type:'NEWRECORD_AMOUNT',
+            payload:{ amount: newAmount }
+        });
     }
 
-    async function addNewRecord(newRecord) {
+    function handleAmountShortcut(amount) {
+        dispatch({
+            type: 'NEWRECORD_SHORTCUT',
+            payload: {amount: amount}
+        });
+    }
+
+    function handleClear() {
+        dispatch({
+            type:'NEWRECORD_CLEAR'
+        });
+    }
+
+    function handleDescription({target}) {
+        const newDescription = target.value;
+        dispatch({
+            type: 'NEWRECORD_DESCRIPTION',
+            payload: { description: newDescription }
+        });
+    }
+
+    function handleCategory({target}) {
+        const newCategory = parseInt(target.value);
+        dispatch({
+            type: 'NEWRECORD_CATEGORY',
+            payload: newCategory
+        });
+    }
+
+    async function handleNewRecord() {
         const config = {
             headers: { 'Content-type' : 'application/json' }
         };
-
+        const newRecordToAdd = {
+            //build record
+        }
         try {
-            const res = await axios.post('/api/v1/records/new', newRecord, config);
+            // const res = await axios.post('/api/v1/records/new', newRecord, config);
             dispatch({
                 type: 'RECORDS_NEW',
-                payload: res.data.data
+                // payload: res.data.data
+                payload: {test: 'test'}
             });
 
         } catch (error) {
@@ -142,11 +179,16 @@ export const GlobalProvider = ({children}) => {
             navBarItems: state.navBarItems, 
             records: state.records,
             listFilter: state.listFilter, 
+            newRecord: state.newRecord,
+            handleDescription,
             handleNavBarClick,
             getLatestRecords,
             handleListFilterChange,
-            addNewRecord,
-            handleAmount
+            handleAmount,
+            handleClear,
+            handleAmountShortcut,
+            handleCategory,
+            handleNewRecord
             }}>
             {children}
         </GlobalContext.Provider>

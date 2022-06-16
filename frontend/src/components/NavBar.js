@@ -5,13 +5,18 @@ import { GlobalContext } from '../context/GlobalState';
 
 
 const NavBar = () => {
-    const { navBarItems, handleNavBarClick, addNewRecord } = useContext(GlobalContext);
+    const { navBarItems, handleNavBarClick, handleNewRecord } = useContext(GlobalContext);
 
     return (
         <>
             <ul className="nav-list">
                 {navBarItems.map((item, idx) => (
-                    <NavBarItem item={item} idx={idx} routeLink={item.to} handleClick={() => handleNavBarClick(idx)} />
+                    <NavBarItem
+                    item={item}
+                    idx={idx}
+                    routeLink={item.to}
+                    handleClick={() => handleNavBarClick(idx)}
+                    handleNewRecord={handleNewRecord} />
                 ))}
 
                 <div className="nav-dot"></div>

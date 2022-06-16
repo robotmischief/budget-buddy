@@ -1,9 +1,9 @@
 import './ShortcutButton.css';
 
-const ShortcutButton = ({amount, onHandleClick}) => {
+const ShortcutButton = ({amountBTN, onHandleClick}) => {
     return (
         <>
-            <button onClick={()=>onHandleClick(amount)}>+{amount}</button>
+            <button onClick={()=>onHandleClick(amountBTN)}>+{amountBTN}</button>
         </>
     );
 };

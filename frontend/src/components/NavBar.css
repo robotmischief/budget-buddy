@@ -80,22 +80,26 @@
 }
 .nav-sub-dot.left {
     opacity: 0;
+    pointer-events: none;
     background-color: var(--earntcolor);
     transition: all .2s ease;
 }
 .nav-sub-dot.left.active {
     transform: translate(-90%, -170%);
     opacity: 1;
+    pointer-events: all;
 }
 
 .nav-sub-dot.right {
     opacity: 0;
+    pointer-events: none;
     background-color: var(--spentcolor);
     transition: all .2s ease;
 }
 .nav-sub-dot.right.active {
     transform: translate(90%, -170%);
     opacity: 1;
+    pointer-events: all;
 }
 
 .nav-dot {
