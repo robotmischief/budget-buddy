@@ -71,13 +71,22 @@ exports.getLatestRecords = async (req, res, next) => {
 //@access Public
 exports.createNewRecord = async (req, res, next) => {
     try {
-        const { userId, type, category, description, amount } = req.body;
-        const newRecord = await db.handleQuery('INSERT INTO records (user_id, type_id, category_id, description, amount) VALUES ($1, $2, $3, $4, $5) RETURNING *', [userId, type, category, description, amount]);
+        const {
+            user_id, 
+            created_at, 
+            type_id, 
+            amount, 
+            category_id, 
+            description 
+        } = req.body;
+
+        const newRecord = await db.handleQuery('INSERT INTO records (created_at, user_id, type_id, amount, category_id, description) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', [created_at, user_id, type_id, amount, category_id, description]);
         return res.status(201).json({
             success: true,
             data: newRecord.rows[0]
         });
     } catch (error) {
+        console.log(error);
         return res.status(400).json({
             success: false,
             error: error.message
