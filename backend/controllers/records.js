@@ -27,7 +27,7 @@ exports.getAllRecords = async (req, res, next) => {
 //@access Public
 exports.getRecordById = async (req, res, next) => {
     try {
-        const { id } = req.params;
+        const { record_id } = req.params;
         const record = await db.handleQuery('SELECT * FROM records WHERE record_id = $1', [id]);
 
         return res.status(200).json({
@@ -99,8 +99,7 @@ exports.createNewRecord = async (req, res, next) => {
 //@access Public
 exports.deleteRecord = async (req, res, next) => {
     try {
-        const { id } = req.params;
-        const deleteRecord = await db.handleQuery('DELETE FROM records WHERE record_id = $1', [ id ]);
+        const deleteRecord = await db.handleQuery('DELETE FROM records WHERE record_id = $1', [ req.params.id ]);
 
         return res.status(200).json({
             success: true,
