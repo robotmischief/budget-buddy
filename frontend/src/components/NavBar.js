@@ -12,6 +12,7 @@ const NavBar = () => {
             <ul className="nav-list">
                 {navBarItems.map((item, idx) => (
                     <NavBarItem
+                    key={idx}
                     item={item}
                     idx={idx}
                     routeLink={item.to}

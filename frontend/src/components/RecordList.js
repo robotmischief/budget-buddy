@@ -10,7 +10,8 @@ const RecordList = () => {
     listFilter, 
     records, 
     getLatestRecords, 
-    handleListFilterChange 
+    handleListFilterChange,
+    handleRecordDelete
   } = useContext(GlobalContext);
   
   useEffect(() => {
@@ -31,7 +32,7 @@ const RecordList = () => {
                   <option value="spent">Spent</option>
               </select>
           </div>
-            {records.map((record) => (<RecordItem recordData={record} />))}
+            {records.map((record) => (<RecordItem key={record.record_id} recordData={record} handleRecordDelete={handleRecordDelete}/>))}
           </div>
           
       </div>

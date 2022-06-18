@@ -1,11 +1,15 @@
 import React, { createContext, useReducer } from 'react';
 import { AppReducer } from './AppReducer';
 import axios from 'axios';
+import { calcTotalByType } from '../utils';
+import { useNavigate } from 'react-router-dom';
 
 const initialState = {
     error: null,
     isLoading: true,
     listFilter: 'latest10',
+    earntTotal: 0.0,
+    spentTotal: 0.0,
     navBarItems: [
         {
             label: 'statement',
@@ -48,6 +52,8 @@ export const GlobalContext = createContext(initialState);
 
 export const GlobalProvider = ({children}) => {
     const [state, dispatch] = useReducer(AppReducer, initialState);
+
+    const navigate = useNavigate();
 
     //Actions
     function handleNavBarClick(idx) {
@@ -96,16 +102,37 @@ export const GlobalProvider = ({children}) => {
 
     async function handleNewRecord(typeofRecord) {
         const config = {
-            headers: { 'Content-type' : 'application/json' }
+            headers: { 'Content-Type' : 'application/json' }
         };
         state.newRecord['user_id'] = 1;
         state.newRecord['type_id'] = (typeofRecord);
+        state.newRecord['created_at'] = new Date().toISOString();
+        // state.newRecord['amount'] =  state.newRecord['amount'].toFixed(2);
         try {
-            // const res = await axios.post('/api/v1/records/new', newRecord, config);
-            console.log('NEW RECORD FROM STATE: ', state.newRecord);
+            const res = await axios.post('/api/v1/records/new', state.newRecord, config);
             dispatch({
                 type: 'RECORDS_NEW',
+                payload: res.data.data
             });
+            handleClear();
+            navigate('/');
+
+        } catch (error) {
+            dispatch({
+                type:'RECORDS_ERROR',
+                payload: error.response.data.error
+            });
+        }
+    }
+
+    async function handleRecordDelete(recordId) {
+        try {
+            const res = await axios.delete(`/api/v1/records/delete/${recordId}`);
+            dispatch({
+                type: 'RECORD_DELETE',
+                payload: recordId
+            });
+            updateBalance();
 
         } catch (error) {
             dispatch({
@@ -123,6 +150,59 @@ export const GlobalProvider = ({children}) => {
                 type: 'RECORDS_GET',
                 payload: res.data.data
             });
+
+        } catch (error) {
+            dispatch({
+                type:'RECORDS_ERROR',
+                payload: error.response.data.error
+            });
+        }
+    }
+
+    async function updateBalance() {
+        try {
+            const res = await axios.get('/api/v1/records/get/all');
+            const allRecords = res.data.data;
+            if (allRecords) {
+                const earntTotal = calcTotalByType( 1, allRecords);
+                const spentTotal = calcTotalByType( 2, allRecords);
+                dispatch({
+                    type: 'BALANCE_UPDATE',
+                    payload: {
+                        earnttotal : earntTotal,
+                        spenttotal : spentTotal
+                    }
+                });
+            }
+
+        } catch (error) {
+            dispatch({
+                type:'RECORDS_ERROR',
+                payload: error.response.data.error
+            });
+        }
+    }
+
+    function handleInitRecord(recordId) {
+        dispatch({
+            type: 'NEWRECORD_INIT',
+            payload: recordId
+        });
+    }
+
+    async function handleRecordUpdate() {
+        const config = {
+            headers: { 'Content-Type' : 'application/json' }
+        };
+        try {
+            const res = await axios.put(`api/v1/records/update/${state.newRecord.record_id}`, state.newRecord, config);
+            dispatch({
+                type: 'RECORD_UPDATE',
+                payload: res.data.data
+            });
+            handleClear();
+            handleNavBarClick(0);
+            navigate('/');
 
         } catch (error) {
             dispatch({
@@ -178,6 +258,8 @@ export const GlobalProvider = ({children}) => {
             records: state.records,
             listFilter: state.listFilter, 
             newRecord: state.newRecord,
+            earntTotal: state.earntTotal,
+            spentTotal: state.spentTotal,
             handleDescription,
             handleNavBarClick,
             getLatestRecords,
@@ -186,7 +268,11 @@ export const GlobalProvider = ({children}) => {
             handleClear,
             handleAmountShortcut,
             handleCategory,
-            handleNewRecord
+            handleNewRecord,
+            handleRecordDelete,
+            updateBalance,
+            handleInitRecord,
+            handleRecordUpdate
             }}>
             {children}
         </GlobalContext.Provider>

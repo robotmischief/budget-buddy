@@ -1,8 +1,7 @@
 import ShortcutButton from "./ShortcutButton";
 import './AmountCard.css';
 
-const AmountCard = ({amount, handleAmount, handleClear, handleAmountShortcut}) => {
-
+const AmountCard = ({isEditmode, amount, handleAmount, handleClear, handleAmountShortcut, handleRecordUpdate, recordId}) => {
     return (
         <>
         <div className="amount-container">
@@ -16,7 +15,10 @@ const AmountCard = ({amount, handleAmount, handleClear, handleAmountShortcut}) =
                     <ShortcutButton amountBTN={100} onHandleClick={handleAmountShortcut} />
                 </div>
             </div>
-            <div className="clean-btn" onClick={handleClear}><img src="../assets/icons/close-outline.svg" alt="icon clear amount" /></div>
+            {!isEditmode
+            ? (<div className="clean-btn" onClick={handleClear}><img className='icon' src="../assets/icons/trash-outline.svg" alt="icon clear amount" /></div>)
+            : (<div className="edit-btn" onClick={handleRecordUpdate}><img className='icon' src="../assets/icons/create-outline.svg" alt="icon edit amount" /></div>)
+            }
         </div>
         </>
     )

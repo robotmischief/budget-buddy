@@ -6,10 +6,12 @@ export const AppReducer = (state, action) => {
             newNavBarItemsState[action.payload].active = true;
             return {...state, navBarItems: newNavBarItemsState};
 
+
         case 'RECORDS_GET':
             return {
                 ...state,
                 loading: false,
+                listFilter: 'latest10',
                 records: action.payload
             };
 
@@ -21,14 +23,20 @@ export const AppReducer = (state, action) => {
             }
         
         case 'RECORDS_NEW':
-            const prevRecords = {...state.records};
-            console.log('hola prev record', prevRecords);
-            console.log('hola new new record', state.newRecord);
-            const tempNewRecord = {...state.newRecord};
-            const tempRecordsForDebbug = {...tempNewRecord, ...prevRecords};
-            console.log('NEW STATE RECORDS ', tempRecordsForDebbug);
+            const prevRecords = [...state.records];
+            const resetNavBar = [...state.navBarItems];
+            resetNavBar.forEach((button)=>button.active = false);
+            resetNavBar[0].active = true;
             return {
-                ...state, records: {...state.newRecord, ...prevRecords}
+                ...state,
+                records: [{...state.newRecord}, ...prevRecords],
+                navBarItems: resetNavBar
+            };
+
+        case 'RECORD_DELETE':
+            const newRecords = state.records.filter((record) => record.record_id !== action.payload);
+            return {
+                ...state, records: newRecords
             };
             
         case 'RECORDS_ERROR':
@@ -57,12 +65,27 @@ export const AppReducer = (state, action) => {
             const clearRecord = {
                 amount: 0,
                 description: '',
-                category: 3,
+                category_id: 3,
             };
             return {
                 ...state,
                 newRecord: clearRecord
             };
+
+        case 'NEWRECORD_INIT':
+            const {recordId} = action.payload;
+            const prevRecordData = {...state.records.find((record) => record.record_id === recordId)};
+            const NavBar = [...state.navBarItems];
+            NavBar.forEach((button)=>button.active = false);
+            return {
+                ...state,
+                newRecord: prevRecordData
+            };
+
+        case 'RECORD_UPDATE':
+            return {
+                ...state
+            }
         
         case 'NEWRECORD_SHORTCUT':
             const shortCutRecord = {...state.newRecord};
@@ -79,6 +102,13 @@ export const AppReducer = (state, action) => {
                 ...state,
                 newRecord: newRecordCategory
             };
+
+        case 'BALANCE_UPDATE':
+            return {
+                ...state,
+                earntTotal: action.payload.earnttotal,
+                spentTotal: action.payload.spenttotal
+            }
 
         default:
             return state;

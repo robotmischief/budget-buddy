@@ -1,5 +1,5 @@
-import { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
+import { useContext } from 'react';
 import Header from '../components/Header';
 import AmountCard from '../components/AmountCard';
 import DetailsCard from '../components/DetailsCard';
@@ -18,15 +18,16 @@ const Add = () => {
                 <div className="form-container">
                     <DetailsCard
                         category = {category_id}
+                        handleCategory = {handleCategory}
                         description = {description}
                         handleDescription = {handleDescription}
-                        handleCategory = {handleCategory}
                     />
                     <AmountCard
                         amount = {amount}
                         handleAmount = {handleAmount}
                         handleClear = {handleClear}
                         handleAmountShortcut = {handleAmountShortcut}
+                        isEditmode={false}
                     />
                 </div>
             </div>

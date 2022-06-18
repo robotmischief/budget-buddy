@@ -1,7 +1,8 @@
 import './RecordItem.css';
+import { Link } from 'react-router-dom';
 import { splitAmountByComma, formatDate, getCategoryLabel } from '../utils';
 
-const RecordItem = ({recordData}) => {
+const RecordItem = ({recordData, handleRecordDelete}) => {
     const {
         record_id,
         created_at,
@@ -18,24 +19,28 @@ const RecordItem = ({recordData}) => {
     const category = getCategoryLabel(category_id);
 
     return (
-        <div className="item-container" onClick={()=>alert(`edit record #${record_id}`)}>
+        <div className="item-container" >
             <div className={`category  ${type}`}></div>
-            <div className="record-data">
-                <div className={`amount ${type}`}><span>$</span>{amountSplited[0]}.<span>{amountSplited[1]}</span>
-                <div className="description"><p>{description}</p></div>
-                </div>
-                <div className="record-details">
-                    <div className="date">
-                        <img src="./assets/icons/calendar-outline.svg" alt="icon calendar" />
-                        {dateFormated}
+            
+            <div className="record-data" >
+                <Link to='/edit' state = {{recordId: record_id}}>
+                    <div className={`amount ${type}`}><span>$</span>{amountSplited[0]}.<span>{amountSplited[1]}</span>
+                    <div className="description"><p>{description}</p></div>
                     </div>
-                    <div className="label">
-                        <img src="./assets/icons/pricetags-outline.svg" alt="icon record categoty" />
-                        {category}
+                    <div className="record-details">
+                        <div className="date">
+                            <img src="./assets/icons/calendar-outline.svg" alt="icon calendar" />
+                            {dateFormated}
+                        </div>
+                        <div className="label">
+                            <img src="./assets/icons/pricetags-outline.svg" alt="icon record categoty" />
+                            {category}
+                        </div>
                     </div>
-                </div>
+                </Link>
             </div>
-            <div className="item-btn" onClick={()=>alert(`delete record #${record_id}`)}><img src="./assets/icons/trash-outline.svg" alt="" /></div>
+            
+            <div className="item-btn" onClick={() => handleRecordDelete(record_id)}><img src="./assets/icons/trash-outline.svg" alt="" /></div>
         </div>
     );
 };

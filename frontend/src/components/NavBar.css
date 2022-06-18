@@ -110,6 +110,7 @@
     position: absolute;
     outline: 6px solid var(--appbackground);
     top: -55%;
+    left: -100%;
     transform: translateX(-50%);
     transition: left .5s ease;
 }
@@ -162,6 +163,7 @@
     }
 
     .nav-dot {
+        top: -100%;
         position: absolute;
         transform: translate(50%, -50%);
         transition: top .5s ease;
