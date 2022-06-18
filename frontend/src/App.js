@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import Statement from './pages/Statement';
 import Add from './pages/Add';
 import Settings from './pages/Settings';
+import Edit from './pages/Edit';
 import NotFound from './pages/NotFound';
 import { useState, useEffect } from 'react';
 
@@ -18,7 +19,6 @@ function App() {
   const handleScroll = () => {
     let posY = window.scrollY;
     setposScrollY(posY);
-    // console.log(`scrolling at last! ${posY}`);
   };
 
   useEffect(() => {
@@ -39,6 +39,7 @@ function App() {
             <Route path='/' element={<Statement posY={posScrollY} />} />
             <Route path='/add' element={<Add />} />
             <Route path='/settings' element={<Settings />} />
+            <Route path='/edit' element={<Edit />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </div>

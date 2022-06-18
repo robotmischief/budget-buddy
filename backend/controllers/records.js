@@ -27,7 +27,7 @@ exports.getAllRecords = async (req, res, next) => {
 //@access Public
 exports.getRecordById = async (req, res, next) => {
     try {
-        const { id } = req.params;
+        const { record_id } = req.params;
         const record = await db.handleQuery('SELECT * FROM records WHERE record_id = $1', [id]);
 
         return res.status(200).json({
@@ -71,13 +71,22 @@ exports.getLatestRecords = async (req, res, next) => {
 //@access Public
 exports.createNewRecord = async (req, res, next) => {
     try {
-        const { userId, type, category, description, amount } = req.body;
-        const newRecord = await db.handleQuery('INSERT INTO records (user_id, type_id, category_id, description, amount) VALUES ($1, $2, $3, $4, $5) RETURNING *', [userId, type, category, description, amount]);
+        const {
+            user_id, 
+            created_at, 
+            type_id, 
+            amount, 
+            category_id, 
+            description 
+        } = req.body;
+
+        const newRecord = await db.handleQuery('INSERT INTO records (created_at, user_id, type_id, amount, category_id, description) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', [created_at, user_id, type_id, amount, category_id, description]);
         return res.status(201).json({
             success: true,
             data: newRecord.rows[0]
         });
     } catch (error) {
+        console.log(error);
         return res.status(400).json({
             success: false,
             error: error.message
@@ -90,8 +99,7 @@ exports.createNewRecord = async (req, res, next) => {
 //@access Public
 exports.deleteRecord = async (req, res, next) => {
     try {
-        const { id } = req.params;
-        const deleteRecord = await db.handleQuery('DELETE FROM records WHERE record_id = $1', [ id ]);
+        const deleteRecord = await db.handleQuery('DELETE FROM records WHERE record_id = $1', [ req.params.id ]);
 
         return res.status(200).json({
             success: true,
@@ -131,6 +139,29 @@ exports.updateRecord = async (req, res, next) => {
     }
 }
 
+
+//@desc get all records of a specific type (1=earnt or 2=spent)
+//@route GET api/v1/records/type/:earntorspent
+//@access Public
+exports.getRecordsByType = async (req, res, next) => {
+    try {
+        const type_id = (req.params.earntorspent === 'earnt') ? 1 : 2;
+        const recordsByType = await db.handleQuery('SELECT * FROM records WHERE type_id = $1 ORDER BY created_at DESC', [type_id]);
+
+        return res.status(200).json({
+            success: true,
+            count: recordsByType.rows.length,
+            data: recordsByType.rows
+        });
+
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            error: error.message
+        });
+    }
+
+}
 // TODO: feature get records by category
 // TODO: feature get records by user
 // TODO: feature admin categories

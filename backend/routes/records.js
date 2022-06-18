@@ -7,7 +7,8 @@ const {
     getLatestRecords,
     getRecordById,
     updateRecord,
-    deleteRecord
+    deleteRecord,
+    getRecordsByType
 } = require('../controllers/records');
 
 router
@@ -25,6 +26,10 @@ router
 router
 .route('/latest/:count')
 .get(getLatestRecords);
+
+router
+.route('/type/:earntorspent')
+.get(getRecordsByType);
 
 router
 .route('/delete/:id')

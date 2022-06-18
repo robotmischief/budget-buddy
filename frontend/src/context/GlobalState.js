@@ -1,7 +1,15 @@
 import React, { createContext, useReducer } from 'react';
 import { AppReducer } from './AppReducer';
+import axios from 'axios';
+import { calcTotalByType } from '../utils';
+import { useNavigate } from 'react-router-dom';
 
 const initialState = {
+    error: null,
+    isLoading: true,
+    listFilter: 'latest10',
+    earntTotal: 0.0,
+    spentTotal: 0.0,
     navBarItems: [
         {
             label: 'statement',
@@ -27,17 +35,25 @@ const initialState = {
         }
     ],
 
-    //dummy records for testing
     records: [
-        { id: 1, created: '2022-11-22 01:10:00', userid: 1, type: 1, amount: 125.00, category: 1, description: 'user entered description of this record' },
-        { id: 2, created: '2022-11-22 01:11:00', userid: 1, type: 2, amount: 25.00, category: 2, description: 'user entered description of this record' }
-    ]
+        //dummy records for testing
+        // { id: 1, created: '2022-11-22 01:10:00', userid: 1, type: 1, amount: 125.00, category: 1, description: 'user entered description of this record' },
+        // { id: 2, created: '2022-11-22 01:11:00', userid: 1, type: 2, amount: 25.00, category: 2, description: 'user entered description of this record' }
+    ],
+
+    newRecord: {
+        amount: 0,
+        description: '',
+        category_id: 3,
+    }
 };
 
 export const GlobalContext = createContext(initialState);
 
 export const GlobalProvider = ({children}) => {
     const [state, dispatch] = useReducer(AppReducer, initialState);
+
+    const navigate = useNavigate();
 
     //Actions
     function handleNavBarClick(idx) {
@@ -47,9 +63,217 @@ export const GlobalProvider = ({children}) => {
         });
     }
     
+    function handleAmount({target}) {
+        const newAmount = parseFloat(target.value);
+        dispatch({
+            type:'NEWRECORD_AMOUNT',
+            payload:{ amount: newAmount }
+        });
+    }
+
+    function handleAmountShortcut(amount) {
+        dispatch({
+            type: 'NEWRECORD_SHORTCUT',
+            payload: {amount: amount}
+        });
+    }
+
+    function handleClear() {
+        dispatch({
+            type:'NEWRECORD_CLEAR'
+        });
+    }
+
+    function handleDescription({target}) {
+        const newDescription = target.value;
+        dispatch({
+            type: 'NEWRECORD_DESCRIPTION',
+            payload: newDescription
+        });
+    }
+
+    function handleCategory({target}) {
+        const newCategory = parseInt(target.value);
+        dispatch({
+            type: 'NEWRECORD_CATEGORY',
+            payload: newCategory
+        });
+    }
+
+    async function handleNewRecord(typeofRecord) {
+        const config = {
+            headers: { 'Content-Type' : 'application/json' }
+        };
+        state.newRecord['user_id'] = 1;
+        state.newRecord['type_id'] = (typeofRecord);
+        state.newRecord['created_at'] = new Date().toISOString();
+        // state.newRecord['amount'] =  state.newRecord['amount'].toFixed(2);
+        try {
+            const res = await axios.post('/api/v1/records/new', state.newRecord, config);
+            dispatch({
+                type: 'RECORDS_NEW',
+                payload: res.data.data
+            });
+            handleClear();
+            navigate('/');
+
+        } catch (error) {
+            dispatch({
+                type:'RECORDS_ERROR',
+                payload: error.response.data.error
+            });
+        }
+    }
+
+    async function handleRecordDelete(recordId) {
+        try {
+            const res = await axios.delete(`/api/v1/records/delete/${recordId}`);
+            dispatch({
+                type: 'RECORD_DELETE',
+                payload: recordId
+            });
+            updateBalance();
+
+        } catch (error) {
+            dispatch({
+                type:'RECORDS_ERROR',
+                payload: error.response.data.error
+            });
+        }
+    }
+
+    async function getLatestRecords(count = 10) {
+        try {
+            const res = await axios.get(`/api/v1/records/latest/${count}`);
+
+            dispatch({
+                type: 'RECORDS_GET',
+                payload: res.data.data
+            });
+
+        } catch (error) {
+            dispatch({
+                type:'RECORDS_ERROR',
+                payload: error.response.data.error
+            });
+        }
+    }
+
+    async function updateBalance() {
+        try {
+            const res = await axios.get('/api/v1/records/get/all');
+            const allRecords = res.data.data;
+            if (allRecords) {
+                const earntTotal = calcTotalByType( 1, allRecords);
+                const spentTotal = calcTotalByType( 2, allRecords);
+                dispatch({
+                    type: 'BALANCE_UPDATE',
+                    payload: {
+                        earnttotal : earntTotal,
+                        spenttotal : spentTotal
+                    }
+                });
+            }
+
+        } catch (error) {
+            dispatch({
+                type:'RECORDS_ERROR',
+                payload: error.response.data.error
+            });
+        }
+    }
+
+    function handleInitRecord(recordId) {
+        dispatch({
+            type: 'NEWRECORD_INIT',
+            payload: recordId
+        });
+    }
+
+    async function handleRecordUpdate() {
+        const config = {
+            headers: { 'Content-Type' : 'application/json' }
+        };
+        try {
+            const res = await axios.put(`api/v1/records/update/${state.newRecord.record_id}`, state.newRecord, config);
+            dispatch({
+                type: 'RECORD_UPDATE',
+                payload: res.data.data
+            });
+            handleClear();
+            handleNavBarClick(0);
+            navigate('/');
+
+        } catch (error) {
+            dispatch({
+                type:'RECORDS_ERROR',
+                payload: error.response.data.error
+            });
+        }
+    }
     
+    async function handleListFilterChange({target}) {
+        try {
+            const filter = target.value;
+            let res = null;
+
+            switch(filter){
+                case 'latest10':
+                    res = await axios.get('/api/v1/records/latest/10');
+                    break;
+                
+                case 'all':
+                    res = await axios.get('/api/v1/records/get/all');
+                    break;
+
+                case 'earnt':
+                    res = await axios.get('/api/v1/records/type/earnt');
+                    break;
+
+                case 'spent':
+                    res = await axios.get('/api/v1/records/type/spent');
+                    break;
+
+                default:
+                    return state;
+            }
+
+            dispatch({
+                type: 'RECORDS_FILTER',
+                filterBy: filter,
+                payload: res.data.data
+            });
+
+        } catch (error) {
+            dispatch({
+                type:'RECORDS_ERROR',
+                payload: error.response.data.error
+            });
+        }
+    }
+
     return (
-        <GlobalContext.Provider value={{navBarItems: state.navBarItems, records: state.records, handleNavBarClick}}>
+        <GlobalContext.Provider value={{
+            navBarItems: state.navBarItems, 
+            records: state.records,
+            listFilter: state.listFilter, 
+            newRecord: state.newRecord,
+            earntTotal: state.earntTotal,
+            spentTotal: state.spentTotal,
+            handleDescription,
+            handleNavBarClick,
+            getLatestRecords,
+            handleListFilterChange,
+            handleAmount,
+            handleClear,
+            handleAmountShortcut,
+            handleCategory,
+            handleNewRecord,
+            handleRecordDelete,
+            updateBalance,
+            handleInitRecord,
+            handleRecordUpdate
+            }}>
             {children}
         </GlobalContext.Provider>
     );

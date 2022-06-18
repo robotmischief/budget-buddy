@@ -4,11 +4,12 @@ import BalanceCard from '../components/BalanceCard';
 import RecordList from '../components/RecordList';
 
 const Statement = ({posY}) => {
-    const topLimitForCard = 50;
+
+    const topLimitForCard = 40;
 
     const [compactView, setCompactView] = useState(false);
     if (posY >= topLimitForCard && compactView === false) setCompactView(true)
-    if (posY <= 10 && compactView === true) setCompactView(false)
+    if (posY <= 20 && compactView === true) setCompactView(false)
 
     return (
         <>

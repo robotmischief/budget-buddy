@@ -11,7 +11,7 @@ const AvatarCard = () => {
         </div>
         <div className="user-data-container">
             <div className="subtext">Your Screen Name</div>
-            <input type="text" value='Demo' className='title'/>
+            <input type="text" defaultValue='Demo' className='title'/>
         </div>
         <div className="login-container">
             <LogoutButton />

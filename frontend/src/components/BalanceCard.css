@@ -24,8 +24,19 @@
     margin-top: 12px;
     font-family: 'Titan One', cursive;
 }
-.balance-container.compact .header {
+.balance-container.compact .header,
+.balance-container.compact .balance-total {
     display: none;
+}
+
+.balance-container .balance-total {
+    font-family: 'Titan One', cursive;
+    font-weight: 300;
+    font-size: 28px;
+}
+.balance-container .balance-total span {
+    font-family: 'Titan One', cursive;
+    font-size: 18px;
 }
 
 .balance-container .earnt-spent-container {
@@ -57,34 +68,41 @@
 }
 .earnt .amount,
 .spent .amount {
-    font-size: 36px;
+    font-size: 28px;
     font-family: 'Titan One', cursive;
 }
 .amount span {
     font-family: 'Titan One', cursive;
-    font-size: 22px;
+    font-size: 18px;
 }
 .earnt .title,
 .spent .title {
     color: var(--cardgreydark);
     color: var(--apptextcolordark);
 }
-.balance-container .graph-spent {
+.graph-larger {
     width: 90%;
     height: 30px;
-    background-color: var(--spentcolor);
     border-radius: 25px;
     margin-top: 6px;
 }
-.balance-container.compact .graph-spent {
+.graph-larger.earnt,
+.graph-shorter.earnt {
+    background-color: var(--earntcolor);
+}
+
+.balance-container.compact .graph-larger {
     margin-top: 22px;
 }
 
-.balance-container .graph-earnt {
+.graph-shorter {
     width: 60%;
     height: 100%;
-    background-color: var(--earntcolor);
-    border-radius: 12px;
+    border-radius: 12px 0 0 12px;
+}
+.graph-larger.spent,
+.graph-shorter.spent {
+    background-color: var(--spentcolor);
 }
 
 .balance-container .footer {

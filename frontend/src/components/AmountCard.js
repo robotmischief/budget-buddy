@@ -1,20 +1,7 @@
-import { useState } from "react";
 import ShortcutButton from "./ShortcutButton";
-
 import './AmountCard.css';
 
-const AmountCard = () => {
-    const [amount, setAmount] = useState(0);
-
-    const handleAmount = ({target}) => {
-        setAmount(Number(target.value));
-    };
-
-    const handleClick = (value) => {
-        const newAmount = amount + value;
-        setAmount(newAmount);
-    };
-
+const AmountCard = ({isEditmode, amount, handleAmount, handleClear, handleAmountShortcut, handleRecordUpdate, recordId}) => {
     return (
         <>
         <div className="amount-container">
@@ -23,15 +10,15 @@ const AmountCard = () => {
             <div className="shortcuts-container">
                 <div className="subtitle">Shortcuts</div>
                 <div className="btns-container">
-                    <ShortcutButton amount={5} onHandleClick={handleClick} />
-                    <ShortcutButton amount={10} onHandleClick={handleClick} />
-                    <ShortcutButton amount={15} onHandleClick={handleClick} />
-                    <ShortcutButton amount={25} onHandleClick={handleClick} />
-                    <ShortcutButton amount={50} onHandleClick={handleClick} />
-                    <ShortcutButton amount={100} onHandleClick={handleClick} />
+                    <ShortcutButton amountBTN={5} onHandleClick={handleAmountShortcut} />
+                    <ShortcutButton amountBTN={25} onHandleClick={handleAmountShortcut} />
+                    <ShortcutButton amountBTN={100} onHandleClick={handleAmountShortcut} />
                 </div>
             </div>
-            <div className="clean-btn" onClick={()=>setAmount(0)}><img src="../assets/icons/close-outline.svg" alt="icon clear amount" /></div>
+            {!isEditmode
+            ? (<div className="clean-btn" onClick={handleClear}><img className='icon' src="../assets/icons/trash-outline.svg" alt="icon clear amount" /></div>)
+            : (<div className="edit-btn" onClick={handleRecordUpdate}><img className='icon' src="../assets/icons/create-outline.svg" alt="icon edit amount" /></div>)
+            }
         </div>
         </>
     )

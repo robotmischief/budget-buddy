@@ -1,20 +1,15 @@
-import { useState } from 'react';
 import './CategoryCard.css';
 
-const CategoryCard = () => {
-    const [category, setCategory] = useState('other');
-    const handleCategory = ({target}) => {
-        setCategory(target.value);
-    };
+const CategoryCard = ({ category, handleCategory }) => {
 
     return (
         <>
             <div className="category-container">
                 <div className="title">Category</div>
                 <select value={category} onChange={handleCategory} >
-                    <option value="salary">Salary</option>
-                    <option value="food">Food</option>
-                    <option value="other">Other</option>
+                    <option value="1">Salary</option>
+                    <option value="2">Food</option>
+                    <option value="3">Other</option>
                 </select>
             </div>
         </>
