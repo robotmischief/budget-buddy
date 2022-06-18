@@ -260,6 +260,7 @@ export const GlobalProvider = ({children}) => {
             newRecord: state.newRecord,
             earntTotal: state.earntTotal,
             spentTotal: state.spentTotal,
+            isLoading: state.isLoading,
             handleDescription,
             handleNavBarClick,
             getLatestRecords,
