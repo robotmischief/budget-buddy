@@ -7,8 +7,9 @@ export default function LoadSpinner() {
       <div className="text-container">
           <h3>Connecting to database</h3>
           <h1>🐱‍🐉💤</h1>
-          <p>This API is being hosted at Heroku so all dynos could be asleep.</p>
-          <p>When a sleeping dyno receives web traffic it will become active again, but there is a short delay as the application needs to be reloaded.</p>
+          <p>Since this API is hosted at Heroku, all dynos could be sleeping.</p>
+          <p>
+          When a sleeping dyno receives web traffic, it will become active again, but there will be a short delay as the application needs to be reloaded.</p>
       </div>
     </div>
   );
