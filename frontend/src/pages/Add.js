@@ -1,5 +1,5 @@
 import { GlobalContext } from '../context/GlobalState';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import Header from '../components/Header';
 import AmountCard from '../components/AmountCard';
 import DetailsCard from '../components/DetailsCard';
@@ -8,6 +8,8 @@ import DetailsCard from '../components/DetailsCard';
 const Add = () => {
 
     const { newRecord, handleAmount, handleCategory, handleDescription, handleClear, handleAmountShortcut } = useContext(GlobalContext);
+    
+    useEffect(()=>handleClear(), []);
 
     const { category_id, description, amount } = newRecord;
 

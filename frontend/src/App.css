@@ -4,7 +4,6 @@
 * {
     /* font-family: 'Titan One', cursive; */
     font-family: 'Titillium Web', sans-serif;
-
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -37,6 +36,14 @@ body {
     /* TODO: workaround to hide scrollbars. using overflow blocks react getting Y offset */
     background-color: var(--appbackground);
     color: var(--apptextcolor);
+    
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .main-content {
