@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import BalanceCard from '../components/BalanceCard';
 import RecordList from '../components/RecordList';
 
-const Statement = ({posY}) => {
+const Statement = ({posY, windowWidth}) => {
 
     const topLimitForCard =70;
 
@@ -16,7 +16,7 @@ const Statement = ({posY}) => {
             <div className="page-container">
                 <Header title='Statement' />
                 <BalanceCard compactView={compactView} />
-                <RecordList />
+                <RecordList windowWidth={windowWidth} />
             </div>
         </>
     );

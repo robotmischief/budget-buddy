@@ -5,8 +5,8 @@ const splitAmountByComma = (amount) => {
 
 const formatDate = (date) => {
     //date > 2022-06-14T00:05:10.393Z
-    //returns < 22-06-14
-    return date.split('T')[0].substring(2,10);
+    //returns < 06-14
+    return date.split('T')[0].substring(5,10);
 };
 
 const getCategoryLabel = (id) => {
@@ -17,7 +17,6 @@ const getCategoryLabel = (id) => {
     };
 
     return categories[id];
-    
 };
 
 const calcTotalByType = (category, records) => {
@@ -38,4 +37,14 @@ const calcBalanceTotal = (earntTotal, spentTotal) => {
     return {balanceTotal, grandtotalColor, opositeGrandTotalColor, graphBarPercentage};
 };
 
-module.exports = { splitAmountByComma, formatDate, getCategoryLabel, calcTotalByType, calcBalanceTotal };
+const calcDescription = (description, windowWidth) => {
+    console.log('SW', windowWidth);
+    console.log('DESC', description);
+    const descriptionTruncated = (windowWidth < 400)
+    ? description.substring(0,3)  + '...'
+    : description;
+
+    return descriptionTruncated;    
+};
+
+module.exports = { splitAmountByComma, formatDate, getCategoryLabel, calcTotalByType, calcBalanceTotal, calcDescription };

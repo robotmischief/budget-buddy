@@ -10,12 +10,9 @@ import NotFound from './pages/NotFound';
 import { useState, useEffect } from 'react';
 
 
-
-
-
-function App() {
+function App() {  
   const [posScrollY, setposScrollY] = useState(0);
-
+  
   const handleScroll = () => {
     let posY = window.scrollY;
     setposScrollY(posY);
@@ -27,6 +24,32 @@ function App() {
     window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  
+  const hasWindow = typeof window !== 'undefined';
+  
+  function getWindowDimensions() {
+    const width = hasWindow ? window.innerWidth : null;
+    const height = hasWindow ? window.innerHeight : null;
+    return {
+      width,
+      height,
+    };
+  }
+  
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+  
+  useEffect(() => {
+    if (hasWindow) {
+      function handleResize() {
+        setWindowDimensions(getWindowDimensions());
+      }
+
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, [hasWindow]);
+
+  
 
   return (
     <BrowserRouter>
@@ -36,7 +59,7 @@ function App() {
         </div>
         <div className="main-content">
           <Routes>
-            <Route path='/' element={<Statement posY={posScrollY} />} />
+            <Route path='/' element={<Statement posY={posScrollY} windowWidth={windowDimensions.width} />} />
             <Route path='/add' element={<Add />} />
             <Route path='/settings' element={<Settings />} />
             <Route path='/edit' element={<Edit />} />

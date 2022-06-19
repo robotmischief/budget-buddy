@@ -6,7 +6,7 @@ import RecordItem from './RecordItem';
 import LoadSpinner from './LoadSpinner';
 
 
-const RecordList = () => {
+const RecordList = ({ windowWidth }) => {
   const { 
     isLoading,
     listFilter, 
@@ -34,7 +34,12 @@ const listToRender = (
               <option value="spent">Spent</option>
           </select>
       </div>
-        {records.map((record) => (<RecordItem key={record.record_id} recordData={record} handleRecordDelete={handleRecordDelete}/>))}
+        {records.map((record) => (<RecordItem 
+                                    key={record.record_id} 
+                                    recordData={record} 
+                                    handleRecordDelete={handleRecordDelete} 
+                                    windowWidth={windowWidth} />
+                                ))}
       </div>
       </>
   );
@@ -45,6 +50,7 @@ const listToRender = (
         ? <LoadSpinner />
         : listToRender
       }
+
     </div>
   );
 };
