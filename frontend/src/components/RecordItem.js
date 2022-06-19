@@ -1,8 +1,8 @@
 import './RecordItem.css';
 import { Link } from 'react-router-dom';
-import { splitAmountByComma, formatDate, getCategoryLabel } from '../utils';
+import { splitAmountByComma, formatDate, getCategoryLabel, calcDescription } from '../utils';
 
-const RecordItem = ({recordData, handleRecordDelete}) => {
+const RecordItem = ({recordData, handleRecordDelete, windowWidth}) => {
     const {
         record_id,
         created_at,
@@ -25,7 +25,7 @@ const RecordItem = ({recordData, handleRecordDelete}) => {
             <div className="record-data" >
                 <Link to='/edit' state = {{recordId: record_id}}>
                     <div className={`amount ${type}`}><span>$</span>{amountSplited[0]}.<span>{amountSplited[1]}</span>
-                    <div className="description"><p>{description}</p></div>
+                    <div className="description"><p>{calcDescription(description, windowWidth)}</p></div>
                     </div>
                     <div className="record-details">
                         <div className="date">
