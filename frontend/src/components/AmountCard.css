@@ -46,11 +46,26 @@
 
 .clean-btn,
 .edit-btn {
-    display: none;
     cursor: pointer;
     color: var(--cardgreylight);
     box-shadow: 0 0 12px 0 var(--shadows);
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-color: var(--cardgreylight);
+    left: 50%;
+    bottom: 10px;
+    transform: translate(-50%, 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.clean-btn {
+    display: none;
+}
+
 .clean-btn .icon,
 .edit-btn .icon {
     width: 38px;
@@ -61,18 +76,7 @@
 @media screen and (min-height: 690px) {
     .clean-btn,
     .edit-btn {
-        display: block;
-        position: absolute;
-        width: 70px;
-        height: 70px;
-        background-color: var(--cardgreylight);
-        left: 50%;
-        bottom: 10px;
-        transform: translate(-50%, 100%);
-        border-radius: 50%;
         display: flex;
-        justify-content: center;
-        align-items: center;
     }
     .clean-btn .icon,
     .edit-btn .icon {

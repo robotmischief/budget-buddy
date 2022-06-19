@@ -10,7 +10,7 @@ export const AppReducer = (state, action) => {
         case 'RECORDS_GET':
             return {
                 ...state,
-                loading: false,
+                isLoading: false,
                 listFilter: 'latest10',
                 records: action.payload
             };

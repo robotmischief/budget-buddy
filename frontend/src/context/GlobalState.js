@@ -20,7 +20,7 @@ const initialState = {
         {
             label: 'add',
             to: '/add',
-            icon: '../assets/icons/cash-outline.svg',
+            icon: '../assets/icons/coin-outline.svg',
             subitems: [
                 {label: 'income', to: 'react/route', icon: './assets/icons/add-circle-outline.svg'},
                 {label: 'expense', to: 'react/route', icon: './assets/icons/remove-circle-outline.svg'}
@@ -195,7 +195,7 @@ export const GlobalProvider = ({children}) => {
             headers: { 'Content-Type' : 'application/json' }
         };
         try {
-            const res = await axios.put(`api/v1/records/update/${state.newRecord.record_id}`, state.newRecord, config);
+            const res = await axios.put(`/api/v1/records/update/${state.newRecord.record_id}`, state.newRecord, config);
             dispatch({
                 type: 'RECORD_UPDATE',
                 payload: res.data.data
@@ -260,6 +260,7 @@ export const GlobalProvider = ({children}) => {
             newRecord: state.newRecord,
             earntTotal: state.earntTotal,
             spentTotal: state.spentTotal,
+            isLoading: state.isLoading,
             handleDescription,
             handleNavBarClick,
             getLatestRecords,

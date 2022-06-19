@@ -5,7 +5,8 @@ const splitAmountByComma = (amount) => {
 
 const formatDate = (date) => {
     //date > 2022-06-14T00:05:10.393Z
-    return date.split('T')[0];
+    //returns < 22-06-14
+    return date.split('T')[0].substring(2,10);
 };
 
 const getCategoryLabel = (id) => {
