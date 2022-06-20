@@ -85,7 +85,7 @@ On mobile phones with shorter screens the *erase/reset entered data button* gets
 $~$
 
 **Record Description:**
-On mobile phones with narrower screens, *larger record descriptions* get truncated and displays 3 dots.
+On mobile phones with narrower screens, *larger record descriptions* get truncated and display 3 dots.
 
 ![truncated record descriptions](/readme/responsive_wider_screen.gif)
 
