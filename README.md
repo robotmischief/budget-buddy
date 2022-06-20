@@ -32,7 +32,7 @@ $~$
 If you want to quickly check the UI and UX key features of this App, please take a look at the screen captures below.
 
 #### **Loading components:**
-As the Backend and DataBase are hosted at Heroku, it is possible that you have to wait until the Dynos wake up.
+Since the Backend and DataBase are hosted at Heroku, you might have to wait until the Dynos wake up.
 
 ![loading Dynos](readme/UX_loading_dynos.gif)
 
