@@ -110,7 +110,7 @@ export const GlobalProvider = ({children}) => {
         state.newRecord['type_id'] = (typeofRecord);
         state.newRecord['created_at'] = new Date().toISOString();
         try {
-            const res = await axios.post('/api/v1/records/new', state.newRecord, config);
+            const res = await axios.post('https://budbud.herokuapp.com/api/v1/records/new', state.newRecord, config);
             dispatch({
                 type: 'RECORDS_NEW',
                 payload: res.data.data
@@ -128,7 +128,7 @@ export const GlobalProvider = ({children}) => {
 
     async function handleRecordDelete(recordId) {
         try {
-            const res = await axios.delete(`/api/v1/records/delete/${recordId}`);
+            const res = await axios.delete(`https://budbud.herokuapp.com/api/v1/records/delete/${recordId}`);
             dispatch({
                 type: 'RECORD_DELETE',
                 payload: recordId
@@ -145,7 +145,7 @@ export const GlobalProvider = ({children}) => {
 
     async function getLatestRecords(count = 10) {
         try {
-            const res = await axios.get(`/api/v1/records/latest/${count}`);
+            const res = await axios.get(`https://budbud.herokuapp.com/api/v1/records/latest/${count}`);
 
             dispatch({
                 type: 'RECORDS_GET',
@@ -162,7 +162,7 @@ export const GlobalProvider = ({children}) => {
 
     async function updateBalance() {
         try {
-            const res = await axios.get('/api/v1/records/get/all');
+            const res = await axios.get('https://budbud.herokuapp.com/api/v1/records/get/all');
             const allRecords = res.data.data;
             if (allRecords) {
                 const earntTotal = calcTotalByType( 1, allRecords);
@@ -196,7 +196,7 @@ export const GlobalProvider = ({children}) => {
             headers: { 'Content-Type' : 'application/json' }
         };
         try {
-            const res = await axios.put(`/api/v1/records/update/${state.newRecord.record_id}`, state.newRecord, config);
+            const res = await axios.put(`https://budbud.herokuapp.com/api/v1/records/update/${state.newRecord.record_id}`, state.newRecord, config);
             dispatch({
                 type: 'RECORD_UPDATE',
                 payload: res.data.data
@@ -220,19 +220,19 @@ export const GlobalProvider = ({children}) => {
 
             switch(filter){
                 case 'latest10':
-                    res = await axios.get('/api/v1/records/latest/10');
+                    res = await axios.get('https://budbud.herokuapp.com/api/v1/records/latest/10');
                     break;
                 
                 case 'all':
-                    res = await axios.get('/api/v1/records/get/all');
+                    res = await axios.get('https://budbud.herokuapp.com/api/v1/records/get/all');
                     break;
 
                 case 'earnt':
-                    res = await axios.get('/api/v1/records/type/earnt');
+                    res = await axios.get('https://budbud.herokuapp.com/api/v1/records/type/earnt');
                     break;
 
                 case 'spent':
-                    res = await axios.get('/api/v1/records/type/spent');
+                    res = await axios.get('https://budbud.herokuapp.com/api/v1/records/type/spent');
                     break;
 
                 default:
