@@ -92,7 +92,7 @@ On mobile phones with narrower screens, *larger record descriptions* get truncat
 $~$
 
 **Navigation Bar:**
-On Tablets and Desktop the Navigation Bar change its possition for a better landscape configuration.
+On Tablets and Desktop the Navigation Bar changes its position for a better landscape configuration.
 
 ![navigation bar landscape screens](/readme/responsive_navbar_landscape_screen.gif)
 
