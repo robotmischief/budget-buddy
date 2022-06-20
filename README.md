@@ -1,6 +1,6 @@
 ![budget buddy header](readme/budget_buddy_header.png)
 ## BudgetBuddy
-### Your friendly budget App for your empty pocket
+### Your friendly budget App for your empty pockets
 $~$
 ## This is the repository of a work in progress PERN stack App
 ### The App is in a very MVP stage but it will be updated as I learn new stuff 💪
@@ -50,7 +50,7 @@ $~$
 $~$
 
 #### **Updating a record:**
-It is possible to edit a previous record but *the type* of record.
+It is possible to edit a previous record but not *the type* of record.
 
 ![updating a record](readme/UX_update_record.gif)
 
@@ -133,7 +133,7 @@ $~$
 
 ## **Nice to have features**
 ---
-There is so much to learn and implement that I decided to keep a checklist -althought looking at it is overwhelming 😬
+There is so much to learn and implement that I decided to keep a checklist of all the things I'd like to add eventually
 
 - [X] Write a readme to the repo :)
 - [ ] A more semantic HTML
