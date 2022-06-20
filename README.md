@@ -19,7 +19,7 @@ $~$
 
 ## **Link to live demo**
 ---
-Follow [this link](https://budgetbuddyapp.netlify.app/) 🐇 to check a working App demo.
+**Follow [this link](https://budgetbuddyapp.netlify.app/) 🐇 to check a working App demo.**
 
 The Frontend Build is being hosted at Netlify while the Backend is hosted at Heroku (PostgreSQL DataBase included)
 
