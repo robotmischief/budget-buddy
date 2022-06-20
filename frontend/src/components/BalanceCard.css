@@ -11,11 +11,13 @@
     z-index: 99;
     box-shadow: 0 0 12px 0 var(--shadows);
 }
+
 .balance-container.compact {
     position: sticky;
     top: 0;
     border-radius: 0 0 12px 12px;
 }
+
 .balance-container .header {
     color: var(--apptextcolordark);
     font-weight: 300;
@@ -24,6 +26,7 @@
     margin-top: 12px;
     font-family: 'Titan One', cursive;
 }
+
 .balance-container.compact .header,
 .balance-container.compact .balance-total {
     display: none;
@@ -34,6 +37,7 @@
     font-weight: 300;
     font-size: 28px;
 }
+
 .balance-container .balance-total span {
     font-family: 'Titan One', cursive;
     font-size: 18px;
@@ -44,17 +48,20 @@
     width: 100%;
     justify-content: center;
 }
+
 .balance-container .earnt-spent-container .earnt,
 .balance-container .earnt-spent-container .spent {
     width: 40%;
     margin: 10px;
 }
+
 .earnt .title,
 .spent .title {
     font-size: 16px;
     color: var(--apptextcolordark);
     font-family: 'Titan One', cursive;
 }
+
 .balance-container.compact .earnt .title,
 .balance-container.compact .spent .title {
     display: none;
@@ -63,29 +70,35 @@
 .earnt {
     color: var(--earntcolor);
 }
+
 .spent {
     color: var(--spentcolor);
 }
+
 .earnt .amount,
 .spent .amount {
     font-size: 28px;
     font-family: 'Titan One', cursive;
 }
+
 .amount span {
     font-family: 'Titan One', cursive;
     font-size: 18px;
 }
+
 .earnt .title,
 .spent .title {
     color: var(--cardgreydark);
     color: var(--apptextcolordark);
 }
+
 .graph-larger {
     width: 90%;
     height: 30px;
     border-radius: 25px;
     margin-top: 6px;
 }
+
 .graph-larger.earnt,
 .graph-shorter.earnt {
     background-color: var(--earntcolor);
@@ -100,6 +113,7 @@
     height: 100%;
     border-radius: 12px 0 0 12px;
 }
+
 .graph-larger.spent,
 .graph-shorter.spent {
     background-color: var(--spentcolor);
@@ -111,6 +125,7 @@
     display: flex;
     justify-content: center;
 }
+
 .balance-container.compact .footer {
     display: none;
 }

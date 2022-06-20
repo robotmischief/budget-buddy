@@ -6,11 +6,11 @@ import DetailsCard from '../components/DetailsCard';
 import AmountCard from '../components/AmountCard';
 
 const Edit = () => {
-
-    
+    // using location to redirect to home after editing is done    
     const location = useLocation();
     const { recordId } = location.state;
 
+    // brings the data from the record to the UI so it is possible to Edit
     useEffect(()=> {
         handleInitRecord({recordId})
     },[]);

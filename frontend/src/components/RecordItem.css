@@ -18,9 +18,11 @@ a {
     height: 100%;
     border-radius: 8px 0 0 8px;
 }
+
 .item-container .category.earnt {
     background-color: var(--earntcolor);
 }
+
 .item-container .category.spent {
     background-color: var(--spentcolor);
 }
@@ -30,11 +32,13 @@ a {
     height: 100%;
     flex-grow: 1;
 }
+
 .item-container .record-data .record-details {
     text-decoration: none;
     display: flex;
     padding: 3px;
 }
+
 .item-container .item-btn {
     width: 38px;
     height: 38px;
@@ -47,6 +51,7 @@ a {
     margin-right: 12px;
     cursor: pointer;
 }
+
 .item-btn img {
     width: 22px;
     height: 22px;
@@ -62,9 +67,11 @@ a {
     display: flex;
     height: 32px;
 }
+
 .amount.spent {
     color: var(--spentcolor);
 }
+
 .amount.earnt {
     color: var(--earntcolor);
 }

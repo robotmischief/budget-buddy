@@ -1,5 +1,5 @@
-import './AvatarCard.css';
 import LogoutButton from './LogoutButton';
+import './AvatarCard.css';
 
 const AvatarCard = () => {
     return (

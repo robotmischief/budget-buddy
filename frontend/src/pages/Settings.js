@@ -2,6 +2,7 @@ import Header from '../components/Header';
 import AvatarCard from '../components/AvatarCard';
 import LogoutButton from '../components/LogoutButton';
 
+// TODO: implement nice to have features
 const Settings = () => {
     return (
         <>

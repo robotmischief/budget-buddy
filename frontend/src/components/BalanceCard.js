@@ -1,7 +1,7 @@
-import './BalanceCard.css';
 import { GlobalContext } from '../context/GlobalState';
 import { useContext, useEffect } from 'react';
 import { calcBalanceTotal, splitAmountByComma } from '../utils';
+import './BalanceCard.css';
 
 const BalanceCard = ({compactView}) => {
     const compactStyle = (compactView) ? 'compact' : '';

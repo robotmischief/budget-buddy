@@ -1,5 +1,6 @@
 import { GlobalProvider } from './context/GlobalState';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
 import Statement from './pages/Statement';
@@ -7,10 +8,12 @@ import Add from './pages/Add';
 import Settings from './pages/Settings';
 import Edit from './pages/Edit';
 import NotFound from './pages/NotFound';
-import { useState, useEffect } from 'react';
 
 
 function App() {  
+  // use the scroll position in Y
+  // to trigger a responsive collapse
+  // on the BalanceCard component
   const [posScrollY, setposScrollY] = useState(0);
   
   const handleScroll = () => {
@@ -25,6 +28,9 @@ function App() {
     };
   }, []);
   
+  // use the window's width size
+  // to trigger a responsive feature
+  // on the RecordItem component
   const hasWindow = typeof window !== 'undefined';
   
   function getWindowDimensions() {
