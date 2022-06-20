@@ -6,11 +6,13 @@ const DetailsCard = ({category, description, handleDescription, handleCategory})
     return (
         <>
             <div className="details-container">
-                <CategoryCard category = {category} handleCategory={handleCategory} />
+                <CategoryCard 
+                    category={category} 
+                    handleCategory={handleCategory} />
                 <DescriptionCard 
-                    description = {description} 
+                    description={description} 
                     handleDescription={handleDescription} 
-                    handleCategory = {handleCategory}
+                    handleCategory={handleCategory}
                 />
             </div>
         </>

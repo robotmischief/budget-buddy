@@ -1,7 +1,7 @@
-import './NavBar.css';
 import React, { useContext } from 'react';
 import { NavBarItem } from './NavBarItem';
 import { GlobalContext } from '../context/GlobalState';
+import './NavBar.css';
 
 
 const NavBar = () => {

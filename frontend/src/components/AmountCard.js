@@ -15,6 +15,7 @@ const AmountCard = ({isEditmode, amount, handleAmount, handleClear, handleAmount
                     <ShortcutButton amountBTN={100} onHandleClick={handleAmountShortcut} />
                 </div>
             </div>
+            {/* the next button shown depends if this component is used for editing or creating a record */}
             {!isEditmode
             ? (<div className="clean-btn" onClick={handleClear}><img className='icon' src="../assets/icons/trash-outline.svg" alt="icon clear amount" /></div>)
             : (<div className="edit-btn" onClick={handleRecordUpdate}><img className='icon' src="../assets/icons/create-outline.svg" alt="icon edit amount" /></div>)

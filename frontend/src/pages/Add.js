@@ -6,10 +6,9 @@ import DetailsCard from '../components/DetailsCard';
 
 
 const Add = () => {
-
     const { newRecord, handleAmount, handleCategory, handleDescription, handleClear, handleAmountShortcut } = useContext(GlobalContext);
     
-    useEffect(()=>handleClear(), []);
+    useEffect(()=>handleClear(), []); // clears the UI to start fresh
 
     const { category_id, description, amount } = newRecord;
 

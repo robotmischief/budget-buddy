@@ -6,7 +6,6 @@ export const AppReducer = (state, action) => {
             newNavBarItemsState[action.payload].active = true;
             return {...state, navBarItems: newNavBarItemsState};
 
-
         case 'RECORDS_GET':
             return {
                 ...state,

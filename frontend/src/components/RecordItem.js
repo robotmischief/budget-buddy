@@ -21,7 +21,6 @@ const RecordItem = ({recordData, handleRecordDelete, windowWidth}) => {
     return (
         <div className="item-container" >
             <div className={`category  ${type}`}></div>
-            
             <div className="record-data" >
                 <Link to='/edit' state = {{recordId: record_id}}>
                     <div className={`amount ${type}`}><span>$</span>{amountSplited[0]}.<span>{amountSplited[1]}</span>

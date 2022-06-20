@@ -18,13 +18,16 @@
 .text-container {
     margin-top: 18px;
 }
+
 .text-container h3 {
     font-weight: 600;
     font-size: 22px;
 }
+
 .text-container p {
     font-size: 16px;
 }
+
 .text-container h1 {
     margin-bottom: 16px;
 }

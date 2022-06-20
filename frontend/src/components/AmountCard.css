@@ -22,6 +22,7 @@
 .shortcuts-container {
     width: 100%;
 }
+
 .amount-container .title {
     font-family: 'Titan One', cursive;
     font-size: 18px;
@@ -78,6 +79,7 @@
     .edit-btn {
         display: flex;
     }
+    
     .clean-btn .icon,
     .edit-btn .icon {
         width: 34px;

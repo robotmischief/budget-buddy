@@ -36,7 +36,7 @@ body {
     /* TODO: workaround to hide scrollbars. using overflow blocks react getting Y offset */
     background-color: var(--appbackground);
     color: var(--apptextcolor);
-    
+    /* turn off touch overlay on touchable elements */
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;

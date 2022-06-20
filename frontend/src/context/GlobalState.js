@@ -1,8 +1,8 @@
 import React, { createContext, useReducer } from 'react';
 import { AppReducer } from './AppReducer';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { calcTotalByType } from '../utils';
-import { useNavigate } from 'react-router-dom';
 
 const initialState = {
     error: null,
@@ -10,6 +10,7 @@ const initialState = {
     listFilter: 'latest10',
     earntTotal: 0.0,
     spentTotal: 0.0,
+    // maybe overshooting here, but trying to learn to implement a scalable navigation bar
     navBarItems: [
         {
             label: 'statement',
@@ -40,11 +41,11 @@ const initialState = {
         // { id: 1, created: '2022-11-22 01:10:00', userid: 1, type: 1, amount: 125.00, category: 1, description: 'user entered description of this record' },
         // { id: 2, created: '2022-11-22 01:11:00', userid: 1, type: 2, amount: 25.00, category: 2, description: 'user entered description of this record' }
     ],
-
+    // newRecord is used for adding and editing a record 
     newRecord: {
         amount: 0,
         description: '',
-        category_id: 3,
+        category_id: 3, // default category: OTHER
     }
 };
 
@@ -56,6 +57,7 @@ export const GlobalProvider = ({children}) => {
     const navigate = useNavigate();
 
     //Actions
+    //idx: button clicked
     function handleNavBarClick(idx) {
         dispatch({
             type:'NAVBAR_CLICK',
@@ -104,10 +106,9 @@ export const GlobalProvider = ({children}) => {
         const config = {
             headers: { 'Content-Type' : 'application/json' }
         };
-        state.newRecord['user_id'] = 1;
+        state.newRecord['user_id'] = 1; // adding momentary data until new features are implemented
         state.newRecord['type_id'] = (typeofRecord);
         state.newRecord['created_at'] = new Date().toISOString();
-        // state.newRecord['amount'] =  state.newRecord['amount'].toFixed(2);
         try {
             const res = await axios.post('/api/v1/records/new', state.newRecord, config);
             dispatch({

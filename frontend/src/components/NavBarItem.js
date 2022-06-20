@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 export const NavBarItem = ({item, idx, handleClick, routeLink, handleNewRecord }) => {
 
     return (
-            <li key={idx} className={(item.active) ? 'nav-item active' : 'nav-item'} onClick={handleClick} >
+            <li 
+                key={idx} 
+                className={(item.active) ? 'nav-item active' : 'nav-item'} 
+                onClick={handleClick} >
                 <Link to={routeLink}>
                     <div className="nav-icon">
                         <img src={item.icon} alt={item.label} />
@@ -23,6 +26,5 @@ export const NavBarItem = ({item, idx, handleClick, routeLink, handleNewRecord }
                     }
                 </Link>
             </li>
-        
     )
 }
