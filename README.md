@@ -1,6 +1,6 @@
 ![budget buddy header](readme/budget_buddy_header.png)
 ## BudgetBuddy
-### Your friendly budget App for your empty pocket
+### Your friendly budget App for your empty pockets
 $~$
 ## This is the repository of a work in progress PERN stack App
 ### The App is in a very MVP stage but it will be updated as I learn new stuff 💪
@@ -19,7 +19,7 @@ $~$
 
 ## **Link to live demo**
 ---
-Follow [this link](https://budgetbuddyapp.netlify.app/) 🐇 to check a working App demo.
+**Follow [this link](https://budgetbuddyapp.netlify.app/) 🐇 to check a working App demo.**
 
 The Frontend Build is being hosted at Netlify while the Backend is hosted at Heroku (PostgreSQL DataBase included)
 
@@ -32,7 +32,7 @@ $~$
 If you want to quickly check the UI and UX key features of this App, please take a look at the screen captures below.
 
 #### **Loading components:**
-As the Backend and DataBase are hosted at Heroku, it is possible that you have to wait until the Dynos wake up.
+Since the Backend and DataBase are hosted at Heroku, you might have to wait until the Dynos wake up.
 
 ![loading Dynos](readme/UX_loading_dynos.gif)
 
@@ -50,7 +50,7 @@ $~$
 $~$
 
 #### **Updating a record:**
-It is possible to edit a previous record but *the type* of record.
+It is possible to edit a previous record but not *the type* of record.
 
 ![updating a record](readme/UX_update_record.gif)
 
@@ -85,14 +85,14 @@ On mobile phones with shorter screens the *erase/reset entered data button* gets
 $~$
 
 **Record Description:**
-On mobile phones with narrower screens, *larger record descriptions* get truncated and displays 3 dots.
+On mobile phones with narrower screens, *larger record descriptions* get truncated and display 3 dots.
 
 ![truncated record descriptions](/readme/responsive_wider_screen.gif)
 
 $~$
 
 **Navigation Bar:**
-On Tablets and Desktop the Navigation Bar change its possition for a better landscape configuration.
+On Tablets and Desktop the Navigation Bar changes its position for a better landscape configuration.
 
 ![navigation bar landscape screens](/readme/responsive_navbar_landscape_screen.gif)
 
@@ -133,7 +133,7 @@ $~$
 
 ## **Nice to have features**
 ---
-There is so much to learn and implement that I decided to keep a checklist -althought looking at it is overwhelming 😬
+There is so much to learn and implement that I decided to keep a checklist of all the things I'd like to add eventually
 
 - [X] Write a readme to the repo :)
 - [ ] A more semantic HTML
